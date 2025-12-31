@@ -1,0 +1,25 @@
+# Ignore build outputs
+bin/
+obj/
+publish/
+
+# Ignore user-specific files
+*.user
+*.suo
+.vs/
+
+# Ignore IDE files
+.vscode/
+.idea/
+
+# Ignore OS files
+Thumbs.db
+.DS_Store
+
+# Ignore logs
+*.log
+logs/
+
+# Ignore temp files
+*.tmp
+*.temp
