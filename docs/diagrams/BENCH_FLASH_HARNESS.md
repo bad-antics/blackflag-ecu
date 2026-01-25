@@ -1,232 +1,125 @@
-# Bench Flash & Boot Mode Harness Diagrams
+# Bench Flash Harness Guide
 
-## Universal Bench Flash Harness
+## Universal Bench Setup
 
 ```
-                              ┌─────────────────┐
-                              │   J2534 Device  │
-                              │  (PassThru API) │
-                              └────────┬────────┘
-                                       │
-                                 USB / Ethernet
-                                       │
-                              ┌────────┴────────┐
-                              │    PC / Laptop  │
-                              │  + Flash Tool   │
-                              └────────┬────────┘
-                                       │
-                    ┌──────────────────┼──────────────────┐
-                    │                  │                  │
-                    ▼                  ▼                  ▼
-           ┌──────────────┐   ┌──────────────┐   ┌──────────────┐
-           │   CAN BUS    │   │    K-LINE    │   │   BDM/JTAG   │
-           │   Adapter    │   │   Adapter    │   │   Adapter    │
-           └──────┬───────┘   └──────┬───────┘   └──────┬───────┘
-                  │                  │                  │
-    ┌─────────────┴─────────────┐    │    ┌─────────────┴─────────────┐
-    │                           │    │    │                           │
-   CAN_H                     CAN_L   K   BDM                       GND
-    │                           │    │    │                           │
-    └───────────────────────────┴────┴────┴───────────────────────────┘
-                                     │
-                              ┌──────┴──────┐
-                              │     ECU     │
-                              │  (On Bench) │
-                              └─────────────┘
+    PC/Laptop + Flash Tool
+           |
+           | USB/Ethernet
+           v
+    J2534 Pass-Thru Device
+           |
+    +------+------+------+
+    |      |      |      |
+  CAN-H  CAN-L  K-LINE  BDM
+    |      |      |      |
+    +------+------+------+
+           |
+           v
+    ECU (On Bench)
 ```
 
 ---
 
-## Bosch ME7/MED9 Boot Mode Wiring
+## Bosch ME7/MED9 Boot Mode
 
-```
-                    ECU Connector (Top View)
-    ┌─────────────────────────────────────────────────────────┐
-    │                                                         │
-    │   [1]   [2]   [3]   [4]   [5]   [6]   [7]   [8]   [9]   │
-    │    ○     ○     ○     ○     ○     ○     ○     ○     ○    │
-    │                                                         │
-    │   [10]  [11]  [12]  [13]  [14]  [15]  [16]  [17]  [18]  │
-    │    ○     ○     ○     ○     ○     ○     ○     ○     ○    │
-    │                                                         │
-    │   [19]  [20]  [21]  [22]  [23]  [24]  [25]  [26]  [27]  │
-    │    ○     ○     ○     ○     ○     ○     ○     ○     ○    │
-    │                                                         │
-    └─────────────────────────────────────────────────────────┘
+### Required Connections
+| Pin | Function | Connection |
+|:---:|----------|------------|
+| 1 | BATT+ | +12V |
+| 2 | BATT+ | +12V |
+| 4 | IGN+ | +12V (switched) |
+| 6 | K-LINE | Adapter |
+| 9 | GND | Ground |
+| 18 | GND | Ground |
+| 27 | GND | Ground |
+| 15 | BOOT | GND via 1kΩ |
 
-    BOOT MODE PINS:
-    ┌─────────────────────────────────────────────────────────┐
-    │  Pin   │  Function       │  Connection                  │
-    ├────────┼─────────────────┼──────────────────────────────┤
-    │   1    │  BATT+          │  +12V (Battery)              │
-    │   2    │  BATT+          │  +12V (Battery)              │
-    │   4    │  IGN+           │  +12V (Ignition)             │
-    │   6    │  K-LINE         │  K-LINE Adapter              │
-    │   9    │  GND            │  Ground                      │
-    │   18   │  GND            │  Ground                      │
-    │   27   │  GND            │  Ground                      │
-    │   15   │  BOOT (BSL)     │  Pull to GND via 1kΩ         │
-    └────────┴─────────────────┴──────────────────────────────┘
-
-    BOOT MODE SEQUENCE:
-    1. Connect GND first
-    2. Pull BOOT pin to GND via 1kΩ resistor
-    3. Apply +12V to BATT pins
-    4. Apply +12V to IGN pin
-    5. Wait 500ms
-    6. Start boot mode communication
-```
+### Boot Sequence
+1. Connect all GND pins
+2. Pull BOOT pin to GND via 1kΩ
+3. Apply +12V to BATT pins
+4. Apply +12V to IGN pin
+5. Wait 500ms
+6. Begin boot communication
 
 ---
 
-## Siemens/Continental Tricore Boot
+## Tricore (Siemens/Continental) Boot
 
-```
-                    154-Pin ECU Connector
-    ┌────────────────────────────────────────────────────────────────────┐
-    │   A1  A2  A3  A4  A5  A6  A7  A8  A9  A10 A11 A12 A13 A14 A15 A16  │
-    │   ○   ○   ○   ○   ○   ○   ○   ○   ○   ○   ○   ○   ○   ○   ○   ○   │
-    │   B1  B2  B3  B4  B5  B6  B7  B8  B9  B10 B11 B12 B13 B14 B15 B16  │
-    │   ○   ○   ○   ○   ○   ○   ○   ○   ○   ○   ○   ○   ○   ○   ○   ○   │
-    │   C1  C2  C3  C4  C5  C6  C7  C8  C9  C10 C11 C12 C13 C14 C15 C16  │
-    │   ○   ○   ○   ○   ○   ○   ○   ○   ○   ○   ○   ○   ○   ○   ○   ○   │
-    │   D1  D2  D3  D4  D5  D6  D7  D8  D9  D10 D11 D12 D13 D14 D15 D16  │
-    │   ○   ○   ○   ○   ○   ○   ○   ○   ○   ○   ○   ○   ○   ○   ○   ○   │
-    └────────────────────────────────────────────────────────────────────┘
+### Boot Configuration Pins
+| BOOT_CFG0 | BOOT_CFG1 | HWCFG | Mode |
+|:---------:|:---------:|:-----:|------|
+| HIGH | LOW | GND | ASC (Serial) |
+| HIGH | HIGH | GND | CAN Boot |
+| LOW | LOW | Open | Internal Flash |
+| LOW | HIGH | Open | External Flash |
 
-    TRICORE BOOT PINS (Typical):
-    ┌─────────────────────────────────────────────────────────┐
-    │  Pin   │  Function       │  Boot Mode                   │
-    ├────────┼─────────────────┼──────────────────────────────┤
-    │  A1    │  VBATT+         │  +12V Power                  │
-    │  A2    │  VBATT+         │  +12V Power                  │
-    │  A9    │  GND            │  Chassis Ground              │
-    │  A10   │  GND            │  Signal Ground               │
-    │  B3    │  CAN-H          │  500 kbps High               │
-    │  B4    │  CAN-L          │  500 kbps Low                │
-    │  C7    │  BOOT_CFG0      │  Pull HIGH (3.3V)            │
-    │  C8    │  BOOT_CFG1      │  Pull LOW (GND)              │
-    │  D12   │  HWCFG          │  Ground for ASC Boot         │
-    │  D14   │  ESR0           │  External Reset              │
-    └────────┴─────────────────┴──────────────────────────────┘
-
-    BOOT MODES:
-    ┌────────────────┬────────────┬────────────┬───────────────┐
-    │  BOOT_CFG0     │ BOOT_CFG1  │   HWCFG    │  Boot Mode    │
-    ├────────────────┼────────────┼────────────┼───────────────┤
-    │     HIGH       │    LOW     │    GND     │  ASC (Serial) │
-    │     HIGH       │    HIGH    │    GND     │  CAN Boot     │
-    │     LOW        │    LOW     │    Open    │  Internal Fls │
-    │     LOW        │    HIGH    │    Open    │  External Fls │
-    └────────────────┴────────────┴────────────┴───────────────┘
-```
+### Required Connections
+| Pin | Function | Connection |
+|:---:|----------|------------|
+| A1-A2 | VBATT | +12V |
+| A9-A10 | GND | Ground |
+| B3 | CAN-H | 500 kbps |
+| B4 | CAN-L | 500 kbps |
+| C7 | BOOT_CFG0 | Per table |
+| C8 | BOOT_CFG1 | Per table |
+| D12 | HWCFG | GND for ASC |
+| D14 | ESR0 | External Reset |
 
 ---
 
-## BDM Connection for Motorola/Freescale MPC5xx
+## BDM (MPC5xx/Freescale)
 
-```
-    ┌─────────────────────────────────────────────────────────┐
-    │              BDM CONNECTOR (10-PIN)                     │
-    │                                                         │
-    │           ┌───┬───┬───┬───┬───┐                         │
-    │           │ 1 │ 2 │ 3 │ 4 │ 5 │                         │
-    │           ├───┼───┼───┼───┼───┤                         │
-    │           │ 6 │ 7 │ 8 │ 9 │10 │                         │
-    │           └───┴───┴───┴───┴───┘                         │
-    │                                                         │
-    │   PIN ASSIGNMENTS:                                      │
-    │   ┌──────┬────────────────────┬────────────────────┐    │
-    │   │ Pin  │ Signal             │ Description        │    │
-    │   ├──────┼────────────────────┼────────────────────┤    │
-    │   │  1   │ BKPT/DSDI          │ Breakpoint Input   │    │
-    │   │  2   │ GND                │ Ground             │    │
-    │   │  3   │ DSDO               │ Data Out           │    │
-    │   │  4   │ VDD                │ Target Voltage Ref │    │
-    │   │  5   │ N/C                │ Not Connected      │    │
-    │   │  6   │ N/C                │ Not Connected      │    │
-    │   │  7   │ RESET              │ Reset Line         │    │
-    │   │  8   │ N/C                │ Not Connected      │    │
-    │   │  9   │ DSCLK              │ Debug Clock        │    │
-    │   │ 10   │ VPP                │ Flash Program Volt │    │
-    │   └──────┴────────────────────┴────────────────────┘    │
-    │                                                         │
-    └─────────────────────────────────────────────────────────┘
-
-    WIRING TO ECU:
-    ┌─────────────────────────────────────────────────────────────────┐
-    │                                                                 │
-    │   BDM Adapter                ECU Board                          │
-    │   ┌─────────┐                ┌─────────────────────────────┐    │
-    │   │ DSDI ○──┼────────────────┼──○ BKPT/DSDI                │    │
-    │   │ DSDO ○──┼────────────────┼──○ TDO                      │    │
-    │   │ DSCLK○──┼────────────────┼──○ TCK                      │    │
-    │   │ RESET○──┼────────────────┼──○ RESET                    │    │
-    │   │ VDD  ○──┼────────────────┼──○ 3.3V/5V                  │    │
-    │   │ GND  ○──┼────────────────┼──○ GND                      │    │
-    │   │ VPP  ○──┼───[Use ONLY for│flash erase if needed]       │    │
-    │   └─────────┘                └─────────────────────────────┘    │
-    │                                                                 │
-    └─────────────────────────────────────────────────────────────────┘
-```
+### 10-Pin BDM Connector
+| Pin | Signal | Description |
+|:---:|--------|-------------|
+| 1 | BKPT/DSDI | Breakpoint Input |
+| 2 | GND | Ground |
+| 3 | DSDO | Data Out |
+| 4 | VDD | Target Voltage |
+| 5 | N/C | - |
+| 6 | N/C | - |
+| 7 | RESET | Reset Line |
+| 8 | N/C | - |
+| 9 | DSCLK | Debug Clock |
+| 10 | VPP | Flash Program (if needed) |
 
 ---
 
-## Power Supply Requirements
+## Power Supply Setup
 
-```
-    ┌─────────────────────────────────────────────────────────────────┐
-    │                   BENCH POWER SUPPLY SETUP                      │
-    ├─────────────────────────────────────────────────────────────────┤
-    │                                                                 │
-    │      ┌─────────────────┐                                        │
-    │      │  Lab PSU        │                                        │
-    │      │  13.8V / 10A    │                                        │
-    │      │  Adjustable     │                                        │
-    │      └───────┬─────────┘                                        │
-    │              │                                                  │
-    │       ┌──────┴──────┐                                           │
-    │       │   +    -    │                                           │
-    │       │   │    │    │                                           │
-    │       │   │    │    │                                           │
-    │   ┌───┴───┘    └────┴───┐                                       │
-    │   │                     │                                       │
-    │   │  ┌───────────────┐  │                                       │
-    │   └──┤ Fuse (5-10A)  ├──┤                                       │
-    │      └───────────────┘  │                                       │
-    │                         │                                       │
-    │   TO ECU:               │                                       │
-    │   ┌─────────────────────┴─────────────────────┐                 │
-    │   │  BATT+  ──── +13.8V (through fuse)        │                 │
-    │   │  IGN+   ──── +13.8V (switched)            │                 │
-    │   │  GND    ──── PSU GND (multiple points)    │                 │
-    │   │  CAN-H  ──── 120Ω terminated              │                 │
-    │   │  CAN-L  ──── 120Ω terminated              │                 │
-    │   └───────────────────────────────────────────┘                 │
-    │                                                                 │
-    │   CRITICAL NOTES:                                               │
-    │   • Always use fused power connections                          │
-    │   • Current limit PSU to 5A initially                           │
-    │   • Monitor current draw (idle: 0.5-2A typical)                 │
-    │   • Use proper CAN termination (120Ω each end)                  │
-    │   • Ground all GND pins for stable operation                    │
-    │                                                                 │
-    └─────────────────────────────────────────────────────────────────┘
-```
+### Requirements
+- Adjustable PSU: 13.8V / 10A
+- Inline fuse: 5-10A
+- Current limit: Start at 5A
+
+### Connections
+| Wire | Connection |
+|------|------------|
+| BATT+ | +13.8V (fused) |
+| IGN+ | +13.8V (switched) |
+| GND | PSU negative (multiple points) |
+| CAN-H | 120Ω terminated |
+| CAN-L | 120Ω terminated |
+
+### Safety Notes
+- Current limit PSU before connecting
+- Normal idle draw: 0.5-2A
+- Ground all GND pins
+- Use proper CAN termination (120Ω each end)
 
 ---
 
-## Safety Checklist
+## Pre-Power Checklist
 
-⚠️ **BEFORE POWERING ECU:**
-- [ ] Verify all ground connections are secure
-- [ ] Confirm power polarity is correct
-- [ ] Set current limit on power supply
-- [ ] Install inline fuse on BATT+ line
-- [ ] Double-check boot mode pin configurations
-- [ ] Ensure CAN bus is properly terminated
-- [ ] Have fire extinguisher accessible
+- [ ] All ground connections secure
+- [ ] Power polarity verified
+- [ ] Current limit set
+- [ ] Inline fuse installed
+- [ ] Boot mode pins configured
+- [ ] CAN bus terminated
 
 ---
 
-*BlackFlag ECU - Bench Flash Reference v2.1*
+*BlackFlag ECU - Bench Flash Reference v2.2*

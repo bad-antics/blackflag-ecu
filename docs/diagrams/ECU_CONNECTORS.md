@@ -1,183 +1,116 @@
-# ECU Connector Pinout Diagrams
+# ECU Connector Pinouts
 
-## Bosch MED17/MG1 Family (154-Pin)
+## Bosch MED17/MG1 (154-Pin)
 
 ```
-  ╔══════════════════════════════════════════════════════════════════╗
-  ║                    BOSCH MED17 ECU CONNECTOR                     ║
-  ║                         154-PIN LAYOUT                           ║
-  ╠══════════════════════════════════════════════════════════════════╣
-  ║                                                                  ║
-  ║  Connector A (Power/Ground) - 52 pins                            ║
-  ║  ┌─────────────────────────────────────────────────────────────┐ ║
-  ║  │ A1  A2  A3  A4  A5  A6  ... A26                             │ ║
-  ║  │ A27 A28 A29 A30 A31 A32 ... A52                             │ ║
-  ║  └─────────────────────────────────────────────────────────────┘ ║
-  ║                                                                  ║
-  ║  Connector B (Sensors/Actuators) - 52 pins                       ║
-  ║  ┌─────────────────────────────────────────────────────────────┐ ║
-  ║  │ B1  B2  B3  B4  B5  B6  ... B26                             │ ║
-  ║  │ B27 B28 B29 B30 B31 B32 ... B52                             │ ║
-  ║  └─────────────────────────────────────────────────────────────┘ ║
-  ║                                                                  ║
-  ║  Connector C (Communication) - 50 pins                           ║
-  ║  ┌─────────────────────────────────────────────────────────────┐ ║
-  ║  │ C1  C2  C3  C4  C5  C6  ... C25                             │ ║
-  ║  │ C26 C27 C28 C29 C30 C31 ... C50                             │ ║
-  ║  └─────────────────────────────────────────────────────────────┘ ║
-  ╚══════════════════════════════════════════════════════════════════╝
+Connector Layout (Top View):
+    A1  A2  A3  A4  ... A16
+    B1  B2  B3  B4  ... B16
+    C1  C2  C3  C4  ... C16
+    D1  D2  D3  D4  ... D16
+    (4 rows x 16 cols = 64 pins per connector)
 ```
 
-### Critical Pins - MED17
-
-| Pin | Function | Wire Color |
-|-----|----------|------------|
-| A1 | +12V Main | Red |
-| A2 | +12V Switched | Red/White |
-| A3 | Ground | Brown |
-| A4 | Ground | Brown |
-| A10 | Starter Signal | Black/Yellow |
-| B5 | CAN-H (Powertrain) | Orange |
-| B6 | CAN-L (Powertrain) | Brown/Orange |
-| B12 | Crank Position + | White |
-| B13 | Crank Position - | White/Black |
-| B20 | Cam Position | Blue |
-| C1 | K-Line Diagnostic | Gray |
-| C3 | CAN-H (Diagnostic) | Green |
-| C4 | CAN-L (Diagnostic) | Brown/Green |
+### Critical Pins
+| Pin | Function | Notes |
+|-----|----------|-------|
+| A1-A2 | VBATT | +12V Battery |
+| A5-A6 | IGN | Ignition Power |
+| A9-A10 | GND | Chassis Ground |
+| B3 | CAN-H | 500 kbps |
+| B4 | CAN-L | 500 kbps |
+| B7 | K-LINE | ISO 9141 |
+| C1-C8 | INJ 1-8 | Injector Outputs |
+| D1-D8 | IGN 1-8 | Coil Outputs |
 
 ---
 
-## Delphi E39/E67/E92 (GM Family)
+## Delphi E39A (80-Pin)
 
 ```
-  ╔══════════════════════════════════════════════════════════════════╗
-  ║                    DELPHI E39A ECU CONNECTOR                     ║
-  ║                         80-PIN LAYOUT                            ║
-  ╠══════════════════════════════════════════════════════════════════╣
-  ║                                                                  ║
-  ║  Connector X1 (Blue) - 32 pins                                   ║
-  ║  ┌──────────────────────────────────────────┐                    ║
-  ║  │ 1   2   3   4   5   6   7   8  ...  16  │                    ║
-  ║  │ 17  18  19  20  21  22  23  24 ...  32  │                    ║
-  ║  └──────────────────────────────────────────┘                    ║
-  ║                                                                  ║
-  ║  Connector X2 (Black) - 24 pins                                  ║
-  ║  ┌──────────────────────────────────────────┐                    ║
-  ║  │ 1   2   3   4   5   6   7   8  ...  12  │                    ║
-  ║  │ 13  14  15  16  17  18  19  20 ...  24  │                    ║
-  ║  └──────────────────────────────────────────┘                    ║
-  ║                                                                  ║
-  ║  Connector X3 (Gray) - 24 pins                                   ║
-  ║  ┌──────────────────────────────────────────┐                    ║
-  ║  │ 1   2   3   4   5   6   7   8  ...  12  │                    ║
-  ║  │ 13  14  15  16  17  18  19  20 ...  24  │                    ║
-  ║  └──────────────────────────────────────────┘                    ║
-  ╚══════════════════════════════════════════════════════════════════╝
+Connector Layout:
+    Row A: 1-20
+    Row B: 21-40
+    Row C: 41-60
+    Row D: 61-80
 ```
 
-### Critical Pins - Delphi E39A
-
-| Connector | Pin | Function |
-|-----------|-----|----------|
-| X1 | 1 | Ignition +12V |
-| X1 | 2 | Battery +12V |
-| X1 | 3-4 | Ground |
-| X1 | 16 | HS-CAN High |
-| X1 | 17 | HS-CAN Low |
-| X2 | 1 | GMLAN |
-| X2 | 5 | LS-CAN High |
-| X2 | 6 | LS-CAN Low |
-| X3 | 10 | Crank Signal |
-| X3 | 12 | Cam Signal |
+### Critical Pins
+| Pin | Function | Notes |
+|-----|----------|-------|
+| 1-2 | VBATT | +12V Battery |
+| 3 | IGN | Ignition Power |
+| 19-20 | GND | Chassis Ground |
+| 25 | CAN-H | HS-CAN |
+| 26 | CAN-L | HS-CAN |
+| 45 | SW-CAN | GMLAN |
+| 41-48 | INJ | Injector Outputs |
+| 61-68 | IGN | Coil Outputs |
 
 ---
 
-## Continental SIM2K (Chrysler/Dodge)
+## Continental SIM2K-260 (128-Pin)
 
 ```
-  ╔══════════════════════════════════════════════════════════════════╗
-  ║                 CONTINENTAL SIM2K-260 CONNECTOR                  ║
-  ║                        128-PIN LAYOUT                            ║
-  ╠══════════════════════════════════════════════════════════════════╣
-  ║                                                                  ║
-  ║  C1 Connector (Power) - 38 pins                                  ║
-  ║  ┌───────────────────────────────────────────────┐               ║
-  ║  │  1  2  3  4  5  6  7  8  9 10 11 12 13 ... 19│               ║
-  ║  │ 20 21 22 23 24 25 26 27 28 29 30 31 32 ... 38│               ║
-  ║  └───────────────────────────────────────────────┘               ║
-  ║                                                                  ║
-  ║  C2 Connector (I/O) - 60 pins                                    ║
-  ║  ┌───────────────────────────────────────────────┐               ║
-  ║  │  1  2  3  4  5  6  7  8  9 10 ... 30        │               ║
-  ║  │ 31 32 33 34 35 36 37 38 39 40 ... 60        │               ║
-  ║  └───────────────────────────────────────────────┘               ║
-  ║                                                                  ║
-  ║  C3 Connector (Comm) - 30 pins                                   ║
-  ║  ┌───────────────────────────────────────────────┐               ║
-  ║  │  1  2  3  4  5  6  7  8  9 10 ... 15        │               ║
-  ║  │ 16 17 18 19 20 21 22 23 24 25 ... 30        │               ║
-  ║  └───────────────────────────────────────────────┘               ║
-  ╚══════════════════════════════════════════════════════════════════╝
+Connector Layout:
+    Row A: 1-32
+    Row B: 33-64
+    Row C: 65-96
+    Row D: 97-128
 ```
 
-### Critical Pins - SIM2K-260 (Hellcat)
-
-| Conn | Pin | Function | Notes |
-|------|-----|----------|-------|
-| C1 | 1-2 | +12V Main | 40A fused |
-| C1 | 3-4 | Ground | Main ground |
-| C1 | 10 | IGN +12V | Run position |
-| C2 | 15 | CAN-H | High-speed |
-| C2 | 16 | CAN-L | High-speed |
-| C2 | 25 | Crank + | Hall sensor |
-| C2 | 26 | Crank - | Hall sensor |
-| C3 | 5 | CAN-H (Diag) | OBD connector |
-| C3 | 6 | CAN-L (Diag) | OBD connector |
+### Critical Pins
+| Pin | Function | Notes |
+|-----|----------|-------|
+| 1-4 | VBATT | +12V Battery |
+| 5-6 | IGN | Ignition Power |
+| 31-32 | GND | Chassis Ground |
+| 40 | CAN-H | Powertrain |
+| 41 | CAN-L | Powertrain |
+| 72 | CAN2-H | Body CAN |
+| 73 | CAN2-L | Body CAN |
+| 65-72 | INJ | Injector Outputs |
+| 97-104 | IGN | Coil Outputs |
 
 ---
 
-## Denso SH7058 (Toyota/Subaru)
+## Denso SH7058 (76-Pin)
 
 ```
-  ╔══════════════════════════════════════════════════════════════════╗
-  ║                   DENSO SH7058 CONNECTOR                         ║
-  ║                      76-PIN LAYOUT                               ║
-  ╠══════════════════════════════════════════════════════════════════╣
-  ║                                                                  ║
-  ║  E1 Connector - 26 pins                                          ║
-  ║  ┌─────────────────────────────────────┐                         ║
-  ║  │ 1  2  3  4  5  6  7  8  9  10 11 12 13│                      ║
-  ║  │14 15 16 17 18 19 20 21 22 23 24 25 26│                      ║
-  ║  └─────────────────────────────────────┘                         ║
-  ║                                                                  ║
-  ║  E2 Connector - 24 pins                                          ║
-  ║  ┌─────────────────────────────────────┐                         ║
-  ║  │ 1  2  3  4  5  6  7  8  9  10 11 12│                         ║
-  ║  │13 14 15 16 17 18 19 20 21 22 23 24│                         ║
-  ║  └─────────────────────────────────────┘                         ║
-  ║                                                                  ║
-  ║  E3 Connector - 26 pins                                          ║
-  ║  ┌─────────────────────────────────────┐                         ║
-  ║  │ 1  2  3  4  5  6  7  8  9  10 11 12 13│                      ║
-  ║  │14 15 16 17 18 19 20 21 22 23 24 25 26│                      ║
-  ║  └─────────────────────────────────────┘                         ║
-  ╚══════════════════════════════════════════════════════════════════╝
+Connector Layout:
+    Row A: 1-19
+    Row B: 20-38
+    Row C: 39-57
+    Row D: 58-76
 ```
 
-### Critical Pins - Denso SH7058 (Subaru)
-
-| Conn | Pin | Function |
-|------|-----|----------|
-| E1 | 1 | +12V Ignition |
-| E1 | 2 | +12V Battery |
-| E1 | 3-4 | Ground |
-| E1 | 10 | CAN-H |
-| E1 | 11 | CAN-L |
-| E2 | 5 | Crank Position |
-| E2 | 6 | Cam Position |
-| E3 | 20 | K-Line |
+### Critical Pins
+| Pin | Function | Notes |
+|-----|----------|-------|
+| 1-2 | VBATT | +12V Battery |
+| 3 | IGN | Key-On Power |
+| 18-19 | GND | Chassis Ground |
+| 24 | CAN-H | 500 kbps |
+| 25 | CAN-L | 500 kbps |
+| 39-42 | INJ 1-4 | Injector Outputs |
+| 58-61 | IGN 1-4 | Coil Outputs |
+| 70 | IAT | Intake Air Temp |
+| 71 | MAP | Manifold Pressure |
+| 72 | TPS | Throttle Position |
 
 ---
 
-*BlackFlag ECU - Connector Reference v2.1*
+## Generic Pin Functions Reference
+
+| Function | Typical Gauge |
+|----------|---------------|
+| VBATT | 16 AWG (power) |
+| GND | 16 AWG (ground) |
+| CAN-H/L | 20-22 AWG (twisted) |
+| Injectors | 18 AWG |
+| Coils | 18 AWG |
+| Sensors | 20-22 AWG |
+
+---
+
+*BlackFlag ECU - Connector Reference v2.2*
