@@ -1,0 +1,287 @@
+{
+  "version": "2.1.0",
+  "lastUpdated": "2026-01-25",
+  "vehicles": [
+    {
+      "make": "Ford",
+      "models": [
+        {"name": "F-150", "years": "2015-2026", "ecu": "Bosch MED17.2", "protocols": ["CAN", "UDS"]},
+        {"name": "Mustang GT", "years": "2018-2026", "ecu": "Bosch MED17.8", "protocols": ["CAN", "UDS"]},
+        {"name": "Mustang Mach-E", "years": "2021-2026", "ecu": "Continental MPC5748G", "protocols": ["CAN-FD", "UDS"]},
+        {"name": "Bronco", "years": "2021-2026", "ecu": "Bosch MED17.2", "protocols": ["CAN", "UDS"]},
+        {"name": "Explorer", "years": "2016-2026", "ecu": "Bosch MED17.0", "protocols": ["CAN", "UDS"]},
+        {"name": "Ranger", "years": "2019-2026", "ecu": "Bosch EDC17CP65", "protocols": ["CAN", "UDS"]},
+        {"name": "Focus RS", "years": "2016-2018", "ecu": "Bosch MED17.0", "protocols": ["CAN", "UDS"]},
+        {"name": "Raptor", "years": "2017-2026", "ecu": "Bosch MED17.2", "protocols": ["CAN", "UDS"]}
+      ]
+    },
+    {
+      "make": "Chevrolet",
+      "models": [
+        {"name": "Silverado", "years": "2014-2026", "ecu": "Delphi E39A", "protocols": ["CAN", "GMLAN"]},
+        {"name": "Camaro SS", "years": "2016-2026", "ecu": "Delphi E92", "protocols": ["CAN", "GMLAN"]},
+        {"name": "Camaro ZL1", "years": "2017-2026", "ecu": "Delphi E92A", "protocols": ["CAN", "GMLAN"]},
+        {"name": "Corvette C7", "years": "2014-2019", "ecu": "Delphi E92", "protocols": ["CAN", "GMLAN"]},
+        {"name": "Corvette C8", "years": "2020-2026", "ecu": "Bosch MED17.9", "protocols": ["CAN-FD", "UDS"]},
+        {"name": "Colorado ZR2", "years": "2017-2026", "ecu": "Delphi E39A", "protocols": ["CAN", "GMLAN"]},
+        {"name": "Tahoe", "years": "2015-2026", "ecu": "Delphi E39A", "protocols": ["CAN", "GMLAN"]}
+      ]
+    },
+    {
+      "make": "Dodge",
+      "models": [
+        {"name": "Challenger Hellcat", "years": "2015-2026", "ecu": "Continental SIM2K-260", "protocols": ["CAN", "UDS"]},
+        {"name": "Charger Hellcat", "years": "2015-2026", "ecu": "Continental SIM2K-260", "protocols": ["CAN", "UDS"]},
+        {"name": "Durango SRT", "years": "2018-2026", "ecu": "Continental SIM2K-260", "protocols": ["CAN", "UDS"]},
+        {"name": "RAM 1500", "years": "2014-2026", "ecu": "Continental SIM2K-140", "protocols": ["CAN", "UDS"]},
+        {"name": "RAM TRX", "years": "2021-2026", "ecu": "Continental SIM2K-260", "protocols": ["CAN", "UDS"]},
+        {"name": "Demon", "years": "2018", "ecu": "Continental SIM2K-260", "protocols": ["CAN", "UDS"]}
+      ]
+    },
+    {
+      "make": "BMW",
+      "models": [
+        {"name": "M3 G80", "years": "2021-2026", "ecu": "Bosch MG1CS201", "protocols": ["CAN-FD", "UDS"]},
+        {"name": "M4 G82", "years": "2021-2026", "ecu": "Bosch MG1CS201", "protocols": ["CAN-FD", "UDS"]},
+        {"name": "M5 F90", "years": "2018-2026", "ecu": "Bosch MG1CS201", "protocols": ["CAN-FD", "UDS"]},
+        {"name": "340i G20", "years": "2019-2026", "ecu": "Bosch MG1CS003", "protocols": ["CAN-FD", "UDS"]},
+        {"name": "X5 M", "years": "2020-2026", "ecu": "Bosch MG1CS201", "protocols": ["CAN-FD", "UDS"]},
+        {"name": "M2 G87", "years": "2023-2026", "ecu": "Bosch MG1CS201", "protocols": ["CAN-FD", "UDS"]}
+      ]
+    },
+    {
+      "make": "Mercedes-Benz",
+      "models": [
+        {"name": "AMG C63", "years": "2015-2026", "ecu": "Bosch MED17.7", "protocols": ["CAN", "UDS"]},
+        {"name": "AMG E63", "years": "2017-2026", "ecu": "Bosch MED17.7", "protocols": ["CAN", "UDS"]},
+        {"name": "AMG GT", "years": "2015-2026", "ecu": "Bosch MED17.7.3", "protocols": ["CAN", "UDS"]},
+        {"name": "AMG A45", "years": "2019-2026", "ecu": "Bosch MED17.9", "protocols": ["CAN-FD", "UDS"]},
+        {"name": "G63 AMG", "years": "2019-2026", "ecu": "Bosch MED17.7.3", "protocols": ["CAN", "UDS"]}
+      ]
+    },
+    {
+      "make": "Audi",
+      "models": [
+        {"name": "RS3", "years": "2017-2026", "ecu": "Bosch MED17.1.62", "protocols": ["CAN", "UDS"]},
+        {"name": "RS6 Avant", "years": "2020-2026", "ecu": "Bosch MG1CS002", "protocols": ["CAN-FD", "UDS"]},
+        {"name": "RS7", "years": "2020-2026", "ecu": "Bosch MG1CS002", "protocols": ["CAN-FD", "UDS"]},
+        {"name": "S4", "years": "2017-2026", "ecu": "Bosch MED17.1", "protocols": ["CAN", "UDS"]},
+        {"name": "TT RS", "years": "2017-2026", "ecu": "Bosch MED17.1.62", "protocols": ["CAN", "UDS"]},
+        {"name": "R8 V10", "years": "2016-2026", "ecu": "Bosch MED17.1.1", "protocols": ["CAN", "UDS"]}
+      ]
+    },
+    {
+      "make": "Volkswagen",
+      "models": [
+        {"name": "Golf R", "years": "2015-2026", "ecu": "Bosch MED17.5.2", "protocols": ["CAN", "UDS"]},
+        {"name": "GTI", "years": "2015-2026", "ecu": "Bosch MED17.5.2", "protocols": ["CAN", "UDS"]},
+        {"name": "Jetta GLI", "years": "2019-2026", "ecu": "Bosch MED17.5.2", "protocols": ["CAN", "UDS"]},
+        {"name": "Arteon", "years": "2019-2026", "ecu": "Bosch MED17.1", "protocols": ["CAN", "UDS"]}
+      ]
+    },
+    {
+      "make": "Toyota",
+      "models": [
+        {"name": "GR Supra", "years": "2020-2026", "ecu": "Bosch MG1CS201", "protocols": ["CAN-FD", "UDS"]},
+        {"name": "GR86", "years": "2022-2026", "ecu": "Denso 17624000", "protocols": ["CAN", "UDS"]},
+        {"name": "Tacoma TRD Pro", "years": "2016-2026", "ecu": "Denso 89661", "protocols": ["CAN", "ISO15765"]},
+        {"name": "4Runner TRD Pro", "years": "2015-2026", "ecu": "Denso 89661", "protocols": ["CAN", "ISO15765"]},
+        {"name": "Tundra TRD Pro", "years": "2022-2026", "ecu": "Denso 17624000", "protocols": ["CAN-FD", "UDS"]}
+      ]
+    },
+    {
+      "make": "Subaru",
+      "models": [
+        {"name": "WRX STI", "years": "2015-2021", "ecu": "Denso SH7058", "protocols": ["CAN", "SSM3"]},
+        {"name": "WRX", "years": "2015-2026", "ecu": "Denso SH7058", "protocols": ["CAN", "SSM3"]},
+        {"name": "BRZ", "years": "2022-2026", "ecu": "Denso 17624000", "protocols": ["CAN", "UDS"]}
+      ]
+    },
+    {
+      "make": "Nissan",
+      "models": [
+        {"name": "GT-R R35", "years": "2009-2026", "ecu": "Denso SH7055", "protocols": ["CAN", "Consult-III"]},
+        {"name": "370Z", "years": "2009-2020", "ecu": "Hitachi SH7058", "protocols": ["CAN", "Consult-III"]},
+        {"name": "Z (RZ34)", "years": "2023-2026", "ecu": "Hitachi TC1797", "protocols": ["CAN-FD", "UDS"]}
+      ]
+    },
+    {
+      "make": "Honda",
+      "models": [
+        {"name": "Civic Type R", "years": "2017-2026", "ecu": "Keihin SH72531", "protocols": ["CAN", "HDS"]},
+        {"name": "Civic Si", "years": "2017-2026", "ecu": "Keihin SH72531", "protocols": ["CAN", "HDS"]},
+        {"name": "Accord 2.0T", "years": "2018-2026", "ecu": "Keihin SH72546", "protocols": ["CAN", "HDS"]}
+      ]
+    },
+    {
+      "make": "Hyundai",
+      "models": [
+        {"name": "Veloster N", "years": "2019-2026", "ecu": "Kefico MED17.9.8", "protocols": ["CAN", "UDS"]},
+        {"name": "Elantra N", "years": "2022-2026", "ecu": "Kefico MED17.9.8", "protocols": ["CAN", "UDS"]},
+        {"name": "Kona N", "years": "2022-2026", "ecu": "Kefico MED17.9.8", "protocols": ["CAN", "UDS"]}
+      ]
+    },
+    {
+      "make": "Kia",
+      "models": [
+        {"name": "Stinger GT", "years": "2018-2026", "ecu": "Kefico MED17.9.8", "protocols": ["CAN", "UDS"]},
+        {"name": "K5 GT", "years": "2021-2026", "ecu": "Kefico MED17.9.8", "protocols": ["CAN", "UDS"]}
+      ]
+    },
+    {
+      "make": "Porsche",
+      "models": [
+        {"name": "911 Turbo (992)", "years": "2020-2026", "ecu": "Bosch MG1CS111", "protocols": ["CAN-FD", "UDS"]},
+        {"name": "911 GT3 (992)", "years": "2021-2026", "ecu": "Bosch MG1CS111", "protocols": ["CAN-FD", "UDS"]},
+        {"name": "Cayenne Turbo", "years": "2019-2026", "ecu": "Bosch MG1CS111", "protocols": ["CAN-FD", "UDS"]},
+        {"name": "Macan GTS", "years": "2020-2026", "ecu": "Bosch MED17.1.27", "protocols": ["CAN", "UDS"]},
+        {"name": "718 GT4", "years": "2020-2026", "ecu": "Bosch MED17.1.27", "protocols": ["CAN", "UDS"]}
+      ]
+    },
+    {
+      "make": "Tesla",
+      "models": [
+        {"name": "Model 3", "years": "2017-2026", "ecu": "Tesla MCU2/MCU3", "protocols": ["CAN-FD", "Proprietary"]},
+        {"name": "Model S Plaid", "years": "2021-2026", "ecu": "Tesla MCU3", "protocols": ["CAN-FD", "Proprietary"]},
+        {"name": "Model Y", "years": "2020-2026", "ecu": "Tesla MCU2/MCU3", "protocols": ["CAN-FD", "Proprietary"]}
+      ]
+    },
+    {
+      "make": "Jeep",
+      "models": [
+        {"name": "Wrangler Rubicon", "years": "2018-2026", "ecu": "Continental SIM2K-140", "protocols": ["CAN", "UDS"]},
+        {"name": "Grand Cherokee Trackhawk", "years": "2018-2021", "ecu": "Continental SIM2K-260", "protocols": ["CAN", "UDS"]},
+        {"name": "Grand Cherokee 4xe", "years": "2022-2026", "ecu": "Continental MPC5748G", "protocols": ["CAN-FD", "UDS"]}
+      ]
+    },
+    {
+      "make": "Lexus",
+      "models": [
+        {"name": "RC F", "years": "2015-2026", "ecu": "Denso 89663", "protocols": ["CAN", "ISO15765"]},
+        {"name": "LC 500", "years": "2018-2026", "ecu": "Denso 89663", "protocols": ["CAN", "ISO15765"]},
+        {"name": "IS 500", "years": "2022-2026", "ecu": "Denso 89663", "protocols": ["CAN", "UDS"]}
+      ]
+    },
+    {
+      "make": "Mazda",
+      "models": [
+        {"name": "MX-5 Miata", "years": "2016-2026", "ecu": "Denso SH7058", "protocols": ["CAN", "UDS"]},
+        {"name": "Mazda3 Turbo", "years": "2021-2026", "ecu": "Denso SH72546", "protocols": ["CAN", "UDS"]},
+        {"name": "CX-5 Turbo", "years": "2019-2026", "ecu": "Denso SH72546", "protocols": ["CAN", "UDS"]}
+      ]
+    },
+    {
+      "make": "Infiniti",
+      "models": [
+        {"name": "Q50 Red Sport", "years": "2016-2026", "ecu": "Hitachi SH7058", "protocols": ["CAN", "Consult-III"]},
+        {"name": "Q60 Red Sport", "years": "2017-2026", "ecu": "Hitachi SH7058", "protocols": ["CAN", "Consult-III"]}
+      ]
+    },
+    {
+      "make": "Acura",
+      "models": [
+        {"name": "NSX", "years": "2017-2026", "ecu": "Bosch MED17.9", "protocols": ["CAN", "HDS"]},
+        {"name": "TLX Type S", "years": "2021-2026", "ecu": "Keihin SH72546", "protocols": ["CAN", "HDS"]},
+        {"name": "Integra A-Spec", "years": "2023-2026", "ecu": "Keihin SH72546", "protocols": ["CAN", "HDS"]}
+      ]
+    },
+    {
+      "make": "Cadillac",
+      "models": [
+        {"name": "CT5-V Blackwing", "years": "2022-2026", "ecu": "Delphi E92A", "protocols": ["CAN", "GMLAN"]},
+        {"name": "CT4-V Blackwing", "years": "2022-2026", "ecu": "Delphi E92A", "protocols": ["CAN", "GMLAN"]},
+        {"name": "Escalade-V", "years": "2023-2026", "ecu": "Delphi E92A", "protocols": ["CAN-FD", "GMLAN"]}
+      ]
+    },
+    {
+      "make": "GMC",
+      "models": [
+        {"name": "Sierra 1500 AT4X", "years": "2022-2026", "ecu": "Delphi E39A", "protocols": ["CAN", "GMLAN"]},
+        {"name": "Hummer EV", "years": "2022-2026", "ecu": "GM Ultium", "protocols": ["CAN-FD", "Proprietary"]},
+        {"name": "Yukon Denali", "years": "2021-2026", "ecu": "Delphi E39A", "protocols": ["CAN", "GMLAN"]}
+      ]
+    },
+    {
+      "make": "Lamborghini",
+      "models": [
+        {"name": "Huracan", "years": "2015-2026", "ecu": "Bosch MED17.1.1", "protocols": ["CAN", "UDS"]},
+        {"name": "Urus", "years": "2019-2026", "ecu": "Bosch MG1CS002", "protocols": ["CAN-FD", "UDS"]},
+        {"name": "Revuelto", "years": "2024-2026", "ecu": "Bosch MG1CS211", "protocols": ["CAN-FD", "UDS"]}
+      ]
+    },
+    {
+      "make": "Ferrari",
+      "models": [
+        {"name": "488 GTB", "years": "2015-2020", "ecu": "Bosch MED17.3.5", "protocols": ["CAN", "UDS"]},
+        {"name": "F8 Tributo", "years": "2020-2026", "ecu": "Bosch MED17.3.5", "protocols": ["CAN", "UDS"]},
+        {"name": "296 GTB", "years": "2022-2026", "ecu": "Bosch MG1CS003", "protocols": ["CAN-FD", "UDS"]}
+      ]
+    },
+    {
+      "make": "McLaren",
+      "models": [
+        {"name": "720S", "years": "2017-2026", "ecu": "Bosch MED17.8.32", "protocols": ["CAN", "UDS"]},
+        {"name": "765LT", "years": "2020-2026", "ecu": "Bosch MED17.8.32", "protocols": ["CAN", "UDS"]},
+        {"name": "Artura", "years": "2022-2026", "ecu": "Bosch MG1CS003", "protocols": ["CAN-FD", "UDS"]}
+      ]
+    },
+    {
+      "make": "Lotus",
+      "models": [
+        {"name": "Emira", "years": "2022-2026", "ecu": "Bosch MED17.9", "protocols": ["CAN", "UDS"]},
+        {"name": "Evija", "years": "2024-2026", "ecu": "Lotus Proprietary", "protocols": ["CAN-FD", "UDS"]}
+      ]
+    },
+    {
+      "make": "Maserati",
+      "models": [
+        {"name": "MC20", "years": "2021-2026", "ecu": "Bosch MED17.3.5", "protocols": ["CAN", "UDS"]},
+        {"name": "Ghibli Trofeo", "years": "2021-2026", "ecu": "Bosch MED17.3.5", "protocols": ["CAN", "UDS"]}
+      ]
+    },
+    {
+      "make": "Alfa Romeo",
+      "models": [
+        {"name": "Giulia Quadrifoglio", "years": "2017-2026", "ecu": "Bosch MED17.3.5", "protocols": ["CAN", "UDS"]},
+        {"name": "Stelvio Quadrifoglio", "years": "2018-2026", "ecu": "Bosch MED17.3.5", "protocols": ["CAN", "UDS"]}
+      ]
+    },
+    {
+      "make": "Land Rover",
+      "models": [
+        {"name": "Defender V8", "years": "2022-2026", "ecu": "Bosch MED17.9.7", "protocols": ["CAN", "UDS"]},
+        {"name": "Range Rover Sport SVR", "years": "2018-2026", "ecu": "Bosch MED17.9.7", "protocols": ["CAN", "UDS"]}
+      ]
+    },
+    {
+      "make": "Jaguar",
+      "models": [
+        {"name": "F-Type R", "years": "2015-2026", "ecu": "Bosch MED17.9.7", "protocols": ["CAN", "UDS"]},
+        {"name": "XE SV Project 8", "years": "2018-2019", "ecu": "Bosch MED17.9.7", "protocols": ["CAN", "UDS"]}
+      ]
+    },
+    {
+      "make": "Volvo",
+      "models": [
+        {"name": "S60 Polestar", "years": "2017-2026", "ecu": "Denso SH7058", "protocols": ["CAN", "UDS"]},
+        {"name": "XC90 T8", "years": "2016-2026", "ecu": "Denso SH7058", "protocols": ["CAN", "UDS"]}
+      ]
+    },
+    {
+      "make": "Mitsubishi",
+      "models": [
+        {"name": "Lancer Evolution X", "years": "2008-2015", "ecu": "Mitsubishi MH8XXX", "protocols": ["CAN", "MUT-III"]},
+        {"name": "Eclipse Cross", "years": "2018-2026", "ecu": "Denso SH72531", "protocols": ["CAN", "UDS"]}
+      ]
+    },
+    {
+      "make": "Genesis",
+      "models": [
+        {"name": "G70", "years": "2019-2026", "ecu": "Kefico MED17.9.8", "protocols": ["CAN", "UDS"]},
+        {"name": "GV70", "years": "2022-2026", "ecu": "Kefico MED17.9.8", "protocols": ["CAN", "UDS"]}
+      ]
+    }
+  ],
+  "totalVehicles": 115,
+  "supportedMakes": 35
+}

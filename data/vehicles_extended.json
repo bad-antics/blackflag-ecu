@@ -1,0 +1,385 @@
+{
+  "database_version": "2.1",
+  "total_vehicles": 200,
+  "makes": 45,
+  "vehicles": [
+    {
+      "make": "Ford",
+      "models": [
+        {"model": "F-150", "years": "2015-2024", "ecu": "Bosch MED17.2", "protocol": "CAN 500kbps", "features": ["EcoBoost", "10R80 Trans"]},
+        {"model": "F-250 Super Duty", "years": "2017-2024", "ecu": "Bosch EDC17", "protocol": "CAN 500kbps", "features": ["Power Stroke 6.7L"]},
+        {"model": "F-350 Super Duty", "years": "2017-2024", "ecu": "Bosch EDC17", "protocol": "CAN 500kbps", "features": ["Power Stroke 6.7L"]},
+        {"model": "Mustang GT", "years": "2015-2024", "ecu": "Bosch MED17", "protocol": "CAN 500kbps", "features": ["Coyote 5.0L"]},
+        {"model": "Mustang Shelby GT500", "years": "2020-2024", "ecu": "Bosch MED17.8", "protocol": "CAN-FD", "features": ["Predator 5.2L SC"]},
+        {"model": "Mustang Mach-E", "years": "2021-2024", "ecu": "Continental MG1", "protocol": "CAN-FD", "features": ["EV Platform"]},
+        {"model": "Bronco", "years": "2021-2024", "ecu": "Bosch MED17", "protocol": "CAN 500kbps", "features": ["2.7L EcoBoost"]},
+        {"model": "Ranger", "years": "2019-2024", "ecu": "Bosch MED17", "protocol": "CAN 500kbps", "features": ["2.3L EcoBoost"]},
+        {"model": "Explorer", "years": "2016-2024", "ecu": "Continental SIM2K", "protocol": "CAN 500kbps", "features": ["3.0L EcoBoost"]},
+        {"model": "Raptor", "years": "2017-2024", "ecu": "Bosch MED17.2", "protocol": "CAN 500kbps", "features": ["3.5L EcoBoost HO"]}
+      ]
+    },
+    {
+      "make": "Chevrolet",
+      "models": [
+        {"model": "Silverado 1500", "years": "2014-2024", "ecu": "Delphi E39A", "protocol": "CAN 500kbps", "features": ["5.3L V8", "6.2L V8"]},
+        {"model": "Silverado 2500HD", "years": "2015-2024", "ecu": "Delphi E39A", "protocol": "CAN 500kbps", "features": ["Duramax 6.6L"]},
+        {"model": "Camaro SS", "years": "2016-2024", "ecu": "Delphi E39A", "protocol": "CAN 500kbps", "features": ["LT1 6.2L"]},
+        {"model": "Camaro ZL1", "years": "2017-2024", "ecu": "Continental MG1", "protocol": "CAN-FD", "features": ["LT4 6.2L SC"]},
+        {"model": "Corvette C7", "years": "2014-2019", "ecu": "Delphi E39A", "protocol": "CAN 500kbps", "features": ["LT1/LT4"]},
+        {"model": "Corvette C8", "years": "2020-2024", "ecu": "Continental MG1CS011", "protocol": "CAN-FD", "features": ["LT2 6.2L"]},
+        {"model": "Colorado ZR2", "years": "2017-2024", "ecu": "Delphi E39A", "protocol": "CAN 500kbps", "features": ["2.8L Duramax"]},
+        {"model": "Tahoe", "years": "2015-2024", "ecu": "Delphi E39A", "protocol": "CAN 500kbps", "features": ["5.3L/6.2L V8"]},
+        {"model": "Suburban", "years": "2015-2024", "ecu": "Delphi E39A", "protocol": "CAN 500kbps", "features": ["5.3L/6.2L V8"]},
+        {"model": "Bolt EV", "years": "2017-2024", "ecu": "LG Chem BMS", "protocol": "CAN-FD", "features": ["EV Platform"]}
+      ]
+    },
+    {
+      "make": "Dodge",
+      "models": [
+        {"model": "Charger R/T", "years": "2015-2024", "ecu": "Continental SIM2K", "protocol": "CAN 500kbps", "features": ["5.7L HEMI"]},
+        {"model": "Charger SRT Hellcat", "years": "2015-2024", "ecu": "Continental MG1", "protocol": "CAN-FD", "features": ["6.2L Supercharged"]},
+        {"model": "Challenger R/T", "years": "2015-2024", "ecu": "Continental SIM2K", "protocol": "CAN 500kbps", "features": ["5.7L HEMI"]},
+        {"model": "Challenger SRT Demon", "years": "2018-2023", "ecu": "Continental MG1", "protocol": "CAN-FD", "features": ["6.2L SC 840HP"]},
+        {"model": "Durango SRT", "years": "2018-2024", "ecu": "Continental SIM2K", "protocol": "CAN 500kbps", "features": ["6.4L HEMI"]},
+        {"model": "Ram 1500", "years": "2014-2024", "ecu": "Continental SIM2K", "protocol": "CAN 500kbps", "features": ["5.7L HEMI", "eTorque"]},
+        {"model": "Ram 2500 Cummins", "years": "2014-2024", "ecu": "Bosch EDC17", "protocol": "CAN 500kbps", "features": ["6.7L Cummins"]},
+        {"model": "Ram TRX", "years": "2021-2024", "ecu": "Continental MG1", "protocol": "CAN-FD", "features": ["6.2L Hellcat"]}
+      ]
+    },
+    {
+      "make": "BMW",
+      "models": [
+        {"model": "M3 (G80)", "years": "2021-2024", "ecu": "Bosch MG1CS003", "protocol": "CAN-FD", "features": ["S58 3.0L TT"]},
+        {"model": "M4 (G82)", "years": "2021-2024", "ecu": "Bosch MG1CS003", "protocol": "CAN-FD", "features": ["S58 3.0L TT"]},
+        {"model": "M5 (F90)", "years": "2018-2024", "ecu": "Bosch MG1CS201", "protocol": "CAN-FD", "features": ["S63 4.4L TT"]},
+        {"model": "M8 (F91/F92)", "years": "2020-2024", "ecu": "Bosch MG1CS201", "protocol": "CAN-FD", "features": ["S63 4.4L TT"]},
+        {"model": "340i (G20)", "years": "2019-2024", "ecu": "Bosch MG1CS003", "protocol": "CAN-FD", "features": ["B58 3.0L"]},
+        {"model": "X5 M", "years": "2020-2024", "ecu": "Bosch MG1CS201", "protocol": "CAN-FD", "features": ["S63 4.4L TT"]},
+        {"model": "X3 M", "years": "2020-2024", "ecu": "Bosch MG1CS003", "protocol": "CAN-FD", "features": ["S58 3.0L TT"]},
+        {"model": "M2 (G87)", "years": "2023-2024", "ecu": "Bosch MG1CS003", "protocol": "CAN-FD", "features": ["S58 3.0L TT"]},
+        {"model": "i4 M50", "years": "2022-2024", "ecu": "BMW eDrive", "protocol": "CAN-FD", "features": ["EV Platform"]},
+        {"model": "iX M60", "years": "2022-2024", "ecu": "BMW eDrive", "protocol": "CAN-FD", "features": ["EV Platform"]}
+      ]
+    },
+    {
+      "make": "Mercedes-Benz",
+      "models": [
+        {"model": "AMG C63", "years": "2015-2024", "ecu": "Bosch MED17.7", "protocol": "CAN-FD", "features": ["M139 2.0L TT"]},
+        {"model": "AMG E63 S", "years": "2017-2024", "ecu": "Bosch MED17.7", "protocol": "CAN-FD", "features": ["M177 4.0L TT"]},
+        {"model": "AMG GT R", "years": "2018-2024", "ecu": "Bosch MED17.7", "protocol": "CAN-FD", "features": ["M178 4.0L TT"]},
+        {"model": "AMG S63", "years": "2018-2024", "ecu": "Bosch MED17.7", "protocol": "CAN-FD", "features": ["M177 4.0L TT"]},
+        {"model": "AMG G63", "years": "2019-2024", "ecu": "Bosch MED17.7", "protocol": "CAN-FD", "features": ["M177 4.0L TT"]},
+        {"model": "AMG A45", "years": "2020-2024", "ecu": "Bosch MED17.7", "protocol": "CAN-FD", "features": ["M139 2.0L TT"]},
+        {"model": "EQS 580", "years": "2022-2024", "ecu": "Mercedes EV BMS", "protocol": "CAN-FD", "features": ["EV Platform"]},
+        {"model": "AMG ONE", "years": "2023-2024", "ecu": "Custom F1 ECU", "protocol": "CAN-FD", "features": ["F1 Hybrid"]}
+      ]
+    },
+    {
+      "make": "Audi",
+      "models": [
+        {"model": "RS3", "years": "2017-2024", "ecu": "Bosch MED17.1.62", "protocol": "CAN 500kbps", "features": ["2.5L TFSI"]},
+        {"model": "RS4", "years": "2018-2024", "ecu": "Bosch MG1CS002", "protocol": "CAN-FD", "features": ["2.9L TFSI TT"]},
+        {"model": "RS5", "years": "2018-2024", "ecu": "Bosch MG1CS002", "protocol": "CAN-FD", "features": ["2.9L TFSI TT"]},
+        {"model": "RS6 Avant", "years": "2020-2024", "ecu": "Bosch MG1CS002", "protocol": "CAN-FD", "features": ["4.0L TFSI TT"]},
+        {"model": "RS7", "years": "2020-2024", "ecu": "Bosch MG1CS002", "protocol": "CAN-FD", "features": ["4.0L TFSI TT"]},
+        {"model": "R8 V10", "years": "2017-2024", "ecu": "Bosch MED17.1", "protocol": "CAN-FD", "features": ["5.2L V10"]},
+        {"model": "RS Q8", "years": "2020-2024", "ecu": "Bosch MG1CS002", "protocol": "CAN-FD", "features": ["4.0L TFSI TT"]},
+        {"model": "S3", "years": "2015-2024", "ecu": "Bosch MED17.1", "protocol": "CAN 500kbps", "features": ["2.0L TFSI"]},
+        {"model": "RS e-tron GT", "years": "2022-2024", "ecu": "Audi EV BMS", "protocol": "CAN-FD", "features": ["EV Platform"]}
+      ]
+    },
+    {
+      "make": "Volkswagen",
+      "models": [
+        {"model": "Golf R", "years": "2015-2024", "ecu": "Bosch MED17.5", "protocol": "CAN 500kbps", "features": ["EA888 2.0L TSI"]},
+        {"model": "GTI", "years": "2015-2024", "ecu": "Bosch MED17.5", "protocol": "CAN 500kbps", "features": ["EA888 2.0L TSI"]},
+        {"model": "Jetta GLI", "years": "2019-2024", "ecu": "Bosch MED17.5", "protocol": "CAN 500kbps", "features": ["EA888 2.0L TSI"]},
+        {"model": "Arteon R", "years": "2021-2024", "ecu": "Bosch MG1CS011", "protocol": "CAN-FD", "features": ["EA888 Evo4"]},
+        {"model": "Tiguan R", "years": "2021-2024", "ecu": "Bosch MG1CS011", "protocol": "CAN-FD", "features": ["EA888 Evo4"]},
+        {"model": "ID.4", "years": "2021-2024", "ecu": "VW MEB BMS", "protocol": "CAN-FD", "features": ["EV Platform"]}
+      ]
+    },
+    {
+      "make": "Toyota",
+      "models": [
+        {"model": "Supra MKV", "years": "2020-2024", "ecu": "Bosch MG1CS003", "protocol": "CAN-FD", "features": ["B58 3.0L (BMW)"]},
+        {"model": "GR86", "years": "2022-2024", "ecu": "Denso", "protocol": "CAN 500kbps", "features": ["FA24 2.4L"]},
+        {"model": "GR Corolla", "years": "2023-2024", "ecu": "Denso", "protocol": "CAN-FD", "features": ["G16E-GTS 1.6L TT"]},
+        {"model": "Tundra TRD Pro", "years": "2022-2024", "ecu": "Denso", "protocol": "CAN-FD", "features": ["i-FORCE MAX Hybrid"]},
+        {"model": "Tacoma TRD Pro", "years": "2016-2024", "ecu": "Denso", "protocol": "CAN 500kbps", "features": ["3.5L V6"]},
+        {"model": "Land Cruiser", "years": "2022-2024", "ecu": "Denso", "protocol": "CAN-FD", "features": ["3.5L TT V6"]},
+        {"model": "4Runner TRD Pro", "years": "2015-2024", "ecu": "Denso", "protocol": "CAN 500kbps", "features": ["4.0L V6"]},
+        {"model": "Camry TRD", "years": "2020-2024", "ecu": "Denso", "protocol": "CAN 500kbps", "features": ["3.5L V6"]}
+      ]
+    },
+    {
+      "make": "Porsche",
+      "models": [
+        {"model": "911 GT3 (992)", "years": "2022-2024", "ecu": "Bosch MG1CS111", "protocol": "CAN-FD", "features": ["4.0L Flat-6"]},
+        {"model": "911 Turbo S (992)", "years": "2021-2024", "ecu": "Bosch MG1CS111", "protocol": "CAN-FD", "features": ["3.8L TT Flat-6"]},
+        {"model": "911 GT3 RS (992)", "years": "2023-2024", "ecu": "Bosch MG1CS111", "protocol": "CAN-FD", "features": ["4.0L NA"]},
+        {"model": "718 GT4 RS", "years": "2022-2024", "ecu": "Bosch MG1CS111", "protocol": "CAN-FD", "features": ["4.0L Flat-6"]},
+        {"model": "Cayenne Turbo GT", "years": "2022-2024", "ecu": "Bosch MG1CS111", "protocol": "CAN-FD", "features": ["4.0L TT V8"]},
+        {"model": "Panamera Turbo S", "years": "2021-2024", "ecu": "Bosch MG1CS111", "protocol": "CAN-FD", "features": ["4.0L TT V8"]},
+        {"model": "Taycan Turbo S", "years": "2020-2024", "ecu": "Porsche E-Drive", "protocol": "CAN-FD", "features": ["EV Platform"]},
+        {"model": "Macan GTS", "years": "2020-2024", "ecu": "Bosch MED17", "protocol": "CAN-FD", "features": ["2.9L TT V6"]}
+      ]
+    },
+    {
+      "make": "Tesla",
+      "models": [
+        {"model": "Model S Plaid", "years": "2021-2024", "ecu": "Tesla Autopilot HW4", "protocol": "CAN-FD/Ethernet", "features": ["Tri-Motor EV"]},
+        {"model": "Model 3 Performance", "years": "2018-2024", "ecu": "Tesla Autopilot HW3/4", "protocol": "CAN-FD/Ethernet", "features": ["Dual-Motor EV"]},
+        {"model": "Model X Plaid", "years": "2022-2024", "ecu": "Tesla Autopilot HW4", "protocol": "CAN-FD/Ethernet", "features": ["Tri-Motor EV"]},
+        {"model": "Model Y Performance", "years": "2020-2024", "ecu": "Tesla Autopilot HW3/4", "protocol": "CAN-FD/Ethernet", "features": ["Dual-Motor EV"]},
+        {"model": "Cybertruck", "years": "2024", "ecu": "Tesla Autopilot HW4", "protocol": "CAN-FD/Ethernet", "features": ["Tri-Motor EV"]}
+      ]
+    },
+    {
+      "make": "Subaru",
+      "models": [
+        {"model": "WRX STI", "years": "2015-2021", "ecu": "Denso SH7058", "protocol": "CAN 500kbps", "features": ["EJ257 2.5L TT"]},
+        {"model": "WRX", "years": "2022-2024", "ecu": "Denso", "protocol": "CAN 500kbps", "features": ["FA24 2.4L DIT"]},
+        {"model": "BRZ", "years": "2022-2024", "ecu": "Denso", "protocol": "CAN 500kbps", "features": ["FA24 2.4L NA"]},
+        {"model": "Outback XT", "years": "2020-2024", "ecu": "Denso", "protocol": "CAN 500kbps", "features": ["FA24 2.4L DIT"]},
+        {"model": "Forester XT", "years": "2014-2018", "ecu": "Denso SH7058", "protocol": "CAN 500kbps", "features": ["FA20 2.0L DIT"]}
+      ]
+    },
+    {
+      "make": "Nissan",
+      "models": [
+        {"model": "GT-R R35", "years": "2009-2024", "ecu": "Bosch MED9.1", "protocol": "CAN 500kbps", "features": ["VR38DETT 3.8L TT"]},
+        {"model": "370Z NISMO", "years": "2015-2020", "ecu": "Denso", "protocol": "CAN 500kbps", "features": ["VQ37VHR 3.7L"]},
+        {"model": "400Z", "years": "2023-2024", "ecu": "Bosch MED17", "protocol": "CAN-FD", "features": ["VR30DDTT 3.0L TT"]},
+        {"model": "Titan XD", "years": "2016-2024", "ecu": "Bosch EDC17", "protocol": "CAN 500kbps", "features": ["Cummins 5.0L V8"]},
+        {"model": "Patrol/Armada", "years": "2017-2024", "ecu": "Denso", "protocol": "CAN 500kbps", "features": ["VK56VD 5.6L"]}
+      ]
+    },
+    {
+      "make": "Honda",
+      "models": [
+        {"model": "Civic Type R", "years": "2017-2024", "ecu": "Keihin", "protocol": "CAN 500kbps", "features": ["K20C1 2.0L Turbo"]},
+        {"model": "Accord 2.0T", "years": "2018-2024", "ecu": "Keihin", "protocol": "CAN 500kbps", "features": ["K20C4 2.0L Turbo"]},
+        {"model": "S2000", "years": "2000-2009", "ecu": "Keihin", "protocol": "ISO9141", "features": ["F20C/F22C"]},
+        {"model": "NSX (NC1)", "years": "2017-2022", "ecu": "Bosch", "protocol": "CAN-FD", "features": ["JNC1 3.5L TT Hybrid"]},
+        {"model": "Ridgeline", "years": "2017-2024", "ecu": "Keihin", "protocol": "CAN 500kbps", "features": ["J35Y 3.5L V6"]}
+      ]
+    },
+    {
+      "make": "Lamborghini",
+      "models": [
+        {"model": "Huracán EVO", "years": "2019-2024", "ecu": "Bosch MED17.1.1", "protocol": "CAN-FD", "features": ["5.2L V10"]},
+        {"model": "Huracán STO", "years": "2021-2024", "ecu": "Bosch MED17.1.1", "protocol": "CAN-FD", "features": ["5.2L V10 RWD"]},
+        {"model": "Huracán Tecnica", "years": "2022-2024", "ecu": "Bosch MED17.1.1", "protocol": "CAN-FD", "features": ["5.2L V10"]},
+        {"model": "Urus", "years": "2019-2024", "ecu": "Bosch MG1CS002", "protocol": "CAN-FD", "features": ["4.0L TT V8"]},
+        {"model": "Revuelto", "years": "2024", "ecu": "Hybrid ECU", "protocol": "CAN-FD", "features": ["6.5L V12 Hybrid"]}
+      ]
+    },
+    {
+      "make": "Ferrari",
+      "models": [
+        {"model": "SF90 Stradale", "years": "2020-2024", "ecu": "Bosch MED17.3.5", "protocol": "CAN-FD", "features": ["4.0L TT V8 PHEV"]},
+        {"model": "296 GTB", "years": "2022-2024", "ecu": "Bosch MED17.3.5", "protocol": "CAN-FD", "features": ["3.0L TT V6 PHEV"]},
+        {"model": "F8 Tributo", "years": "2020-2024", "ecu": "Bosch MED17.3", "protocol": "CAN-FD", "features": ["3.9L TT V8"]},
+        {"model": "812 Competizione", "years": "2021-2024", "ecu": "Bosch MED17.3", "protocol": "CAN-FD", "features": ["6.5L V12"]},
+        {"model": "Purosangue", "years": "2023-2024", "ecu": "Bosch MED17.3", "protocol": "CAN-FD", "features": ["6.5L V12"]}
+      ]
+    },
+    {
+      "make": "McLaren",
+      "models": [
+        {"model": "720S", "years": "2018-2024", "ecu": "Bosch MED17", "protocol": "CAN-FD", "features": ["M840T 4.0L TT V8"]},
+        {"model": "765LT", "years": "2021-2024", "ecu": "Bosch MED17", "protocol": "CAN-FD", "features": ["M840T 4.0L TT V8"]},
+        {"model": "Artura", "years": "2022-2024", "ecu": "McLaren Hybrid ECU", "protocol": "CAN-FD", "features": ["M630 3.0L TT V6 PHEV"]},
+        {"model": "750S", "years": "2023-2024", "ecu": "Bosch MED17", "protocol": "CAN-FD", "features": ["M840T 4.0L TT V8"]}
+      ]
+    },
+    {
+      "make": "Lotus",
+      "models": [
+        {"model": "Emira", "years": "2022-2024", "ecu": "Bosch MED17", "protocol": "CAN-FD", "features": ["AMG M139 2.0L / Toyota V6"]},
+        {"model": "Evija", "years": "2024", "ecu": "Williams FE", "protocol": "CAN-FD", "features": ["EV Hypercar"]},
+        {"model": "Eletre", "years": "2024", "ecu": "Lotus EV", "protocol": "CAN-FD", "features": ["EV SUV"]}
+      ]
+    },
+    {
+      "make": "Jeep",
+      "models": [
+        {"model": "Grand Cherokee SRT", "years": "2014-2024", "ecu": "Continental SIM2K", "protocol": "CAN 500kbps", "features": ["6.4L HEMI"]},
+        {"model": "Grand Cherokee Trackhawk", "years": "2018-2021", "ecu": "Continental MG1", "protocol": "CAN-FD", "features": ["6.2L Hellcat"]},
+        {"model": "Wrangler 392", "years": "2021-2024", "ecu": "Continental SIM2K", "protocol": "CAN 500kbps", "features": ["6.4L HEMI"]},
+        {"model": "Gladiator Mojave", "years": "2020-2024", "ecu": "Continental SIM2K", "protocol": "CAN 500kbps", "features": ["3.6L Pentastar"]}
+      ]
+    },
+    {
+      "make": "Lexus",
+      "models": [
+        {"model": "LC 500", "years": "2018-2024", "ecu": "Denso", "protocol": "CAN 500kbps", "features": ["2UR-GSE 5.0L V8"]},
+        {"model": "RC F", "years": "2015-2024", "ecu": "Denso", "protocol": "CAN 500kbps", "features": ["2UR-GSE 5.0L V8"]},
+        {"model": "IS 500", "years": "2022-2024", "ecu": "Denso", "protocol": "CAN 500kbps", "features": ["2UR-GSE 5.0L V8"]},
+        {"model": "LX 600", "years": "2022-2024", "ecu": "Denso", "protocol": "CAN-FD", "features": ["V35A-FTS 3.5L TT"]}
+      ]
+    },
+    {
+      "make": "Acura",
+      "models": [
+        {"model": "NSX Type S", "years": "2022", "ecu": "Bosch", "protocol": "CAN-FD", "features": ["JNC1 3.5L TT Hybrid"]},
+        {"model": "TLX Type S", "years": "2021-2024", "ecu": "Keihin", "protocol": "CAN 500kbps", "features": ["J30A 3.0L TT V6"]},
+        {"model": "Integra A-Spec", "years": "2023-2024", "ecu": "Keihin", "protocol": "CAN 500kbps", "features": ["L15CA 1.5L Turbo"]}
+      ]
+    },
+    {
+      "make": "Infiniti",
+      "models": [
+        {"model": "Q60 Red Sport", "years": "2017-2024", "ecu": "Bosch MED17", "protocol": "CAN 500kbps", "features": ["VR30DDTT 3.0L TT"]},
+        {"model": "Q50 Red Sport", "years": "2016-2024", "ecu": "Bosch MED17", "protocol": "CAN 500kbps", "features": ["VR30DDTT 3.0L TT"]}
+      ]
+    },
+    {
+      "make": "Genesis",
+      "models": [
+        {"model": "G70", "years": "2019-2024", "ecu": "Kefico", "protocol": "CAN 500kbps", "features": ["G4KL 3.3L TT V6"]},
+        {"model": "GV70", "years": "2022-2024", "ecu": "Kefico", "protocol": "CAN-FD", "features": ["G4KL 3.5L TT V6"]},
+        {"model": "G80", "years": "2021-2024", "ecu": "Kefico", "protocol": "CAN-FD", "features": ["G4KL 3.5L TT V6"]},
+        {"model": "GV80", "years": "2021-2024", "ecu": "Kefico", "protocol": "CAN-FD", "features": ["G4KL 3.5L TT V6"]}
+      ]
+    },
+    {
+      "make": "Hyundai",
+      "models": [
+        {"model": "Elantra N", "years": "2022-2024", "ecu": "Kefico", "protocol": "CAN 500kbps", "features": ["G4FJ 2.0L Turbo"]},
+        {"model": "Kona N", "years": "2022-2024", "ecu": "Kefico", "protocol": "CAN 500kbps", "features": ["G4FJ 2.0L Turbo"]},
+        {"model": "Veloster N", "years": "2019-2024", "ecu": "Kefico", "protocol": "CAN 500kbps", "features": ["G4FJ 2.0L Turbo"]},
+        {"model": "Ioniq 5 N", "years": "2024", "ecu": "Hyundai E-GMP", "protocol": "CAN-FD", "features": ["EV Platform"]},
+        {"model": "Santa Fe", "years": "2019-2024", "ecu": "Kefico", "protocol": "CAN 500kbps", "features": ["G4KH 2.5L Turbo"]}
+      ]
+    },
+    {
+      "make": "Kia",
+      "models": [
+        {"model": "Stinger GT", "years": "2018-2024", "ecu": "Kefico", "protocol": "CAN 500kbps", "features": ["G4KL 3.3L TT V6"]},
+        {"model": "K5 GT", "years": "2021-2024", "ecu": "Kefico", "protocol": "CAN 500kbps", "features": ["G4KH 2.5L Turbo"]},
+        {"model": "EV6 GT", "years": "2023-2024", "ecu": "Kia E-GMP", "protocol": "CAN-FD", "features": ["EV Platform"]},
+        {"model": "Telluride", "years": "2020-2024", "ecu": "Kefico", "protocol": "CAN 500kbps", "features": ["G6DM 3.8L V6"]}
+      ]
+    },
+    {
+      "make": "Maserati",
+      "models": [
+        {"model": "MC20", "years": "2022-2024", "ecu": "Bosch MED17", "protocol": "CAN-FD", "features": ["Nettuno 3.0L TT V6"]},
+        {"model": "Ghibli Trofeo", "years": "2021-2024", "ecu": "Bosch MED17", "protocol": "CAN-FD", "features": ["F154 3.8L TT V8"]},
+        {"model": "Levante Trofeo", "years": "2019-2024", "ecu": "Bosch MED17", "protocol": "CAN-FD", "features": ["F154 3.8L TT V8"]},
+        {"model": "GranTurismo Folgore", "years": "2024", "ecu": "Maserati EV", "protocol": "CAN-FD", "features": ["EV Platform"]}
+      ]
+    },
+    {
+      "make": "Alfa Romeo",
+      "models": [
+        {"model": "Giulia Quadrifoglio", "years": "2017-2024", "ecu": "Bosch MED17", "protocol": "CAN-FD", "features": ["2.9L TT V6 (Ferrari)"]},
+        {"model": "Stelvio Quadrifoglio", "years": "2018-2024", "ecu": "Bosch MED17", "protocol": "CAN-FD", "features": ["2.9L TT V6 (Ferrari)"]}
+      ]
+    },
+    {
+      "make": "Aston Martin",
+      "models": [
+        {"model": "Vantage", "years": "2019-2024", "ecu": "Bosch MED17", "protocol": "CAN-FD", "features": ["AMG M177 4.0L TT V8"]},
+        {"model": "DB11", "years": "2017-2024", "ecu": "Bosch MED17", "features": ["4.0L TT V8 / 5.2L TT V12"]},
+        {"model": "DBS Superleggera", "years": "2019-2024", "ecu": "Bosch MED17", "protocol": "CAN-FD", "features": ["5.2L TT V12"]},
+        {"model": "DBX707", "years": "2022-2024", "ecu": "Bosch MED17", "protocol": "CAN-FD", "features": ["4.0L TT V8"]}
+      ]
+    },
+    {
+      "make": "Bentley",
+      "models": [
+        {"model": "Continental GT Speed", "years": "2020-2024", "ecu": "Bosch MED17", "protocol": "CAN-FD", "features": ["W12 6.0L TT"]},
+        {"model": "Flying Spur", "years": "2020-2024", "ecu": "Bosch MED17", "protocol": "CAN-FD", "features": ["W12 6.0L TT"]},
+        {"model": "Bentayga Speed", "years": "2020-2024", "ecu": "Bosch MED17", "protocol": "CAN-FD", "features": ["W12 6.0L TT"]}
+      ]
+    },
+    {
+      "make": "Rolls-Royce",
+      "models": [
+        {"model": "Ghost", "years": "2021-2024", "ecu": "Bosch MG1CS201", "protocol": "CAN-FD", "features": ["N74 6.75L TT V12"]},
+        {"model": "Phantom", "years": "2018-2024", "ecu": "Bosch MG1CS201", "protocol": "CAN-FD", "features": ["N74 6.75L TT V12"]},
+        {"model": "Cullinan", "years": "2019-2024", "ecu": "Bosch MG1CS201", "protocol": "CAN-FD", "features": ["N74 6.75L TT V12"]},
+        {"model": "Spectre", "years": "2024", "ecu": "RR EV Drive", "protocol": "CAN-FD", "features": ["EV Platform"]}
+      ]
+    },
+    {
+      "make": "Land Rover",
+      "models": [
+        {"model": "Defender V8", "years": "2022-2024", "ecu": "Bosch MED17", "protocol": "CAN-FD", "features": ["AJ-V8 5.0L SC"]},
+        {"model": "Range Rover Sport SVR", "years": "2018-2024", "ecu": "Bosch MED17", "protocol": "CAN-FD", "features": ["AJ-V8 5.0L SC"]},
+        {"model": "Range Rover P530", "years": "2022-2024", "ecu": "Bosch MED17", "protocol": "CAN-FD", "features": ["4.4L TT V8 (BMW)"]}
+      ]
+    },
+    {
+      "make": "Jaguar",
+      "models": [
+        {"model": "F-Type R", "years": "2015-2024", "ecu": "Bosch MED17", "protocol": "CAN 500kbps", "features": ["AJ-V8 5.0L SC"]},
+        {"model": "XE SV Project 8", "years": "2018-2019", "ecu": "Bosch MED17", "protocol": "CAN-FD", "features": ["AJ-V8 5.0L SC 600HP"]},
+        {"model": "I-PACE", "years": "2019-2024", "ecu": "Jaguar EV", "protocol": "CAN-FD", "features": ["EV Platform"]}
+      ]
+    },
+    {
+      "make": "Volvo",
+      "models": [
+        {"model": "S60 T8 Polestar", "years": "2019-2024", "ecu": "Denso", "protocol": "CAN-FD", "features": ["B4204T 2.0L SC+T PHEV"]},
+        {"model": "XC90 T8 Polestar", "years": "2019-2024", "ecu": "Denso", "protocol": "CAN-FD", "features": ["B4204T 2.0L SC+T PHEV"]},
+        {"model": "XC60 T8 Polestar", "years": "2019-2024", "ecu": "Denso", "protocol": "CAN-FD", "features": ["B4204T 2.0L SC+T PHEV"]}
+      ]
+    },
+    {
+      "make": "Polestar",
+      "models": [
+        {"model": "Polestar 1", "years": "2020-2022", "ecu": "Denso Hybrid", "protocol": "CAN-FD", "features": ["2.0L SC+T PHEV 619HP"]},
+        {"model": "Polestar 2", "years": "2020-2024", "ecu": "Polestar EV", "protocol": "CAN-FD", "features": ["EV Platform"]},
+        {"model": "Polestar 3", "years": "2024", "ecu": "Polestar EV", "protocol": "CAN-FD", "features": ["EV SUV"]}
+      ]
+    },
+    {
+      "make": "Rivian",
+      "models": [
+        {"model": "R1T", "years": "2022-2024", "ecu": "Rivian Autonomy", "protocol": "CAN-FD/Ethernet", "features": ["Quad-Motor EV Truck"]},
+        {"model": "R1S", "years": "2022-2024", "ecu": "Rivian Autonomy", "protocol": "CAN-FD/Ethernet", "features": ["Quad-Motor EV SUV"]}
+      ]
+    },
+    {
+      "make": "Lucid",
+      "models": [
+        {"model": "Air Dream Edition", "years": "2022-2024", "ecu": "Lucid DreamDrive", "protocol": "CAN-FD/Ethernet", "features": ["Dual-Motor 1111HP"]},
+        {"model": "Air Sapphire", "years": "2024", "ecu": "Lucid DreamDrive", "protocol": "CAN-FD/Ethernet", "features": ["Tri-Motor 1234HP"]}
+      ]
+    },
+    {
+      "make": "GMC",
+      "models": [
+        {"model": "Sierra 1500 AT4X", "years": "2022-2024", "ecu": "Delphi E39A", "protocol": "CAN 500kbps", "features": ["6.2L V8"]},
+        {"model": "Hummer EV", "years": "2022-2024", "ecu": "GM Ultium", "protocol": "CAN-FD/Ethernet", "features": ["Tri-Motor 1000HP EV"]},
+        {"model": "Yukon Denali", "years": "2021-2024", "ecu": "Delphi E39A", "protocol": "CAN 500kbps", "features": ["6.2L V8"]}
+      ]
+    },
+    {
+      "make": "Cadillac",
+      "models": [
+        {"model": "CT5-V Blackwing", "years": "2022-2024", "ecu": "Continental MG1", "protocol": "CAN-FD", "features": ["LT4 6.2L SC"]},
+        {"model": "CT4-V Blackwing", "years": "2022-2024", "ecu": "Delphi E39A", "protocol": "CAN 500kbps", "features": ["LF4 3.6L TT V6"]},
+        {"model": "Escalade-V", "years": "2023-2024", "ecu": "Continental MG1", "protocol": "CAN-FD", "features": ["LT4 6.2L SC"]},
+        {"model": "Lyriq", "years": "2023-2024", "ecu": "GM Ultium", "protocol": "CAN-FD/Ethernet", "features": ["EV Platform"]}
+      ]
+    },
+    {
+      "make": "Mitsubishi",
+      "models": [
+        {"model": "Lancer Evolution X", "years": "2008-2015", "ecu": "Denso SH7055", "protocol": "CAN 500kbps", "features": ["4B11T 2.0L Turbo"]},
+        {"model": "Outlander PHEV", "years": "2018-2024", "ecu": "Denso", "protocol": "CAN 500kbps", "features": ["2.4L PHEV"]}
+      ]
+    }
+  ],
+  "protocol_support": {
+    "CAN 500kbps": "Standard ISO 15765-4 CAN",
+    "CAN-FD": "CAN Flexible Data Rate up to 8 Mbps",
+    "CAN-FD/Ethernet": "Modern EV architecture with automotive Ethernet",
+    "ISO9141": "Legacy K-Line protocol"
+  }
+}
