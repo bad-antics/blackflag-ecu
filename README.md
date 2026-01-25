@@ -240,3 +240,32 @@ SOFTWARE.
 *Built by [Bad Antics Development](https://github.com/bad-antics)*
 
 </div>
+
+## 🚗 Supported Vehicles
+
+### Domestic
+- **Ford** - F-150, Mustang, Bronco, Ranger (2015-2025)
+- **GM** - Silverado, Camaro, Corvette, Sierra (2014-2025)
+- **Dodge/Ram** - Ram 1500/2500, Charger, Challenger (2013-2025)
+
+### European
+- **BMW** - 3/5/7 Series, M3/M4/M5 (2012-2025)
+- **Mercedes** - C/E/S Class, AMG (2014-2025)
+- **Audi** - A4/A6/RS6, Q5/Q7 (2015-2025)
+- **VW** - Golf R, GTI, Tiguan (2016-2025)
+
+### Japanese
+- **Toyota** - Supra, GR86, Tacoma (2018-2025)
+- **Honda** - Civic Type R, Accord (2017-2025)
+- **Nissan** - GT-R, Z, 370Z (2009-2025)
+- **Subaru** - WRX, STI, BRZ (2015-2025)
+
+## ⚡ Tuning Features
+
+- ECU flash read/write
+- Custom map creation
+- Emissions delete options
+- Performance calibrations
+- Rev limiter adjustments
+- Speed limiter removal
+
