@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlackFlag ECU — Professional Automotive Diagnostic & Tuning Suite</title>
+  <meta name="description" content="Professional ECU diagnostics, tuning, and performance optimization. CAN bus, OBD-II, J2534 interface. 900+ vehicle database. Flash, tune, unlock ECUs.">
+  <meta name="keywords" content="ECU tuning, automotive diagnostics, OBD2, CAN bus, J2534, ECU flash, engine tuning, car diagnostics">
+  <meta property="og:title" content="BlackFlag ECU — Professional Automotive Power">
+  <meta property="og:description" content="ECU diagnostics, tuning, and performance. 900+ vehicles. CAN, K-Line, J1850. Built with C# .NET 8.0.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bad-antics.github.io/blackflag-ecu/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #111118;
+      --bg3: #1a1a24;
+      --accent: #ff4444;
+      --accent2: #ffaa00;
+      --accent-dim: #ff444430;
+      --danger: #ff4444;
+      --warning: #ffaa00;
+      --green: #00ff88;
+      --blue: #00ccff;
+      --text: #e0e0e8;
+      --text-dim: #8888a0;
+      --border: #2a2a3a;
+      --card: #14141e;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --mono: 'JetBrains Mono', 'Fira Code', monospace;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+    a { color: var(--accent); text-decoration: none; transition: opacity .2s; }
+    a:hover { opacity: .8; }
+    code, pre { font-family: var(--mono); }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; backdrop-filter: blur(20px); background: rgba(10,10,15,0.85); border-bottom: 1px solid var(--border); padding: 0 2rem; }
+    .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .nav-brand { font-weight: 800; font-size: 1.1rem; color: var(--accent); display: flex; align-items: center; gap: .5rem; }
+    .nav-brand span { color: var(--text-dim); font-weight: 400; font-size: .85rem; }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a { color: var(--text-dim); font-size: .9rem; font-weight: 500; }
+    .nav-links a:hover { color: var(--accent); }
+    .btn { display: inline-flex; align-items: center; gap: .5rem; padding: .6rem 1.4rem; border-radius: 8px; font-weight: 600; font-size: .9rem; transition: all .2s; border: none; cursor: pointer; }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: #e63939; transform: translateY(-1px); box-shadow: 0 4px 20px var(--accent-dim); }
+    .btn-outline { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+    .btn-outline:hover { background: var(--accent-dim); }
+
+    .hero { padding: 10rem 2rem 6rem; text-align: center; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at 50% 0%, var(--accent-dim) 0%, transparent 60%); pointer-events: none; }
+    .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; }
+    .hero h1 .accent { color: var(--accent); }
+    .hero h1 .accent2 { color: var(--accent2); }
+    .hero .subtitle { font-size: 1.25rem; color: var(--text-dim); max-width: 680px; margin: 0 auto 2.5rem; }
+    .hero-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem; }
+
+    .stats { display: flex; justify-content: center; gap: 4rem; padding: 2rem 2rem; flex-wrap: wrap; }
+    .stat { text-align: center; }
+    .stat-num { font-size: 2.5rem; font-weight: 800; color: var(--accent); font-family: var(--mono); }
+    .stat-label { font-size: .85rem; color: var(--text-dim); margin-top: .25rem; }
+
+    section { padding: 5rem 2rem; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .section-title { text-align: center; margin-bottom: 3rem; }
+    .section-title h2 { font-size: 2.2rem; font-weight: 800; margin-bottom: .5rem; }
+    .section-title p { color: var(--text-dim); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+
+    .layers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .layer-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; transition: transform .2s, border-color .2s; }
+    .layer-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+    .layer-card h3 { font-size: 1.1rem; margin-bottom: .5rem; }
+    .layer-card p { color: var(--text-dim); font-size: .9rem; }
+
+    .vehicle-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .vehicle-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; }
+    .vehicle-card h3 { font-size: 1rem; margin-bottom: .75rem; display: flex; align-items: center; gap: .5rem; }
+    .vehicle-card .flag { font-size: 1.25rem; }
+    .vehicle-list { list-style: none; }
+    .vehicle-list li { padding: .3rem 0; color: var(--text-dim); font-size: .85rem; display: flex; justify-content: space-between; }
+    .vehicle-list li span { color: var(--text); font-weight: 500; }
+    .vehicle-list li .years { color: var(--accent2); font-family: var(--mono); font-size: .75rem; }
+
+    .proto-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+    .proto-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; text-align: center; }
+    .proto-card h4 { font-size: .95rem; margin-bottom: .25rem; }
+    .proto-card p { color: var(--text-dim); font-size: .8rem; }
+    .proto-card .proto-icon { font-size: 1.5rem; margin-bottom: .5rem; }
+
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+    .price-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2.5rem; text-align: center; transition: transform .2s, border-color .2s; position: relative; }
+    .price-card:hover { transform: translateY(-4px); }
+    .price-card.featured { border-color: var(--accent); box-shadow: 0 0 40px var(--accent-dim); }
+    .price-card.featured::before { content: 'BEST VALUE'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #fff; padding: .25rem 1rem; border-radius: 12px; font-size: .7rem; font-weight: 800; }
+    .price-card h3 { font-size: 1.3rem; margin-bottom: .5rem; }
+    .price-card .price { font-size: 3rem; font-weight: 800; margin: 1rem 0; font-family: var(--mono); }
+    .price-card .price span { font-size: 1rem; color: var(--text-dim); font-weight: 400; }
+    .price-card .price-sub { color: var(--text-dim); font-size: .9rem; margin-bottom: 1.5rem; }
+    .price-features { list-style: none; text-align: left; margin-bottom: 2rem; }
+    .price-features li { padding: .5rem 0; display: flex; align-items: center; gap: .75rem; font-size: .9rem; }
+    .price-features .check { color: var(--green); font-weight: bold; }
+    .price-features .x { color: var(--text-dim); }
+    .price-card .btn { width: 100%; justify-content: center; }
+
+    .theme-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+    .theme-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; text-align: center; transition: transform .2s, border-color .2s; }
+    .theme-card:hover { transform: translateY(-4px); }
+    .theme-swatch { width: 100%; height: 60px; border-radius: 8px; margin-bottom: .75rem; }
+    .theme-card h4 { font-size: .95rem; }
+    .theme-card p { color: var(--text-dim); font-size: .8rem; }
+
+    .cli-demo { background: var(--bg3); border: 1px solid var(--border); border-radius: 12px; max-width: 700px; margin: 2rem auto 0; overflow: hidden; }
+    .cli-header { display: flex; align-items: center; gap: .5rem; padding: .75rem 1rem; background: var(--card); border-bottom: 1px solid var(--border); }
+    .cli-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .cli-dot.r { background: #ff5f57; }
+    .cli-dot.y { background: #febc2e; }
+    .cli-dot.g { background: #28c840; }
+    .cli-title { font-size: .75rem; color: var(--text-dim); margin-left: .5rem; font-family: var(--mono); }
+    .cli-body { padding: 1.5rem; font-family: var(--mono); font-size: .85rem; line-height: 1.8; }
+    .cli-body .prompt { color: var(--accent); }
+    .cli-body .cmd { color: var(--text); }
+    .cli-body .out { color: var(--text-dim); }
+    .cli-body .ok { color: var(--green); }
+    .cli-body .warn { color: var(--warning); }
+
+    footer { border-top: 1px solid var(--border); padding: 3rem 2rem; text-align: center; color: var(--text-dim); font-size: .85rem; }
+    footer .footer-links { display: flex; gap: 2rem; justify-content: center; margin-bottom: 1rem; flex-wrap: wrap; }
+
+    @media (max-width: 768px) {
+      .nav-links { gap: 1rem; }
+      .stats { gap: 2rem; }
+      .hero { padding: 8rem 1.5rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-brand">🏴 BlackFlag ECU <span>v2.1</span></div>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#vehicles">Vehicles</a>
+        <a href="#pricing">Pricing</a>
+        <a href="https://github.com/bad-antics/blackflag-ecu" target="_blank">GitHub</a>
+        <a href="https://github.com/bad-antics/blackflag-ecu/releases" class="btn btn-primary">Download</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1>
+      <span class="accent">Diagnose.</span> Tune.<br>
+      <span class="accent2">Dominate.</span>
+    </h1>
+    <p class="subtitle">
+      Professional automotive ECU diagnostics, performance tuning, and real-time data analysis.
+      900+ vehicles. CAN bus, K-Line, J2534. Single-file portable executable.
+    </p>
+    <div class="hero-cta">
+      <a href="https://github.com/bad-antics/blackflag-ecu/releases/tag/v2.1" class="btn btn-primary">Download BlackFlag.exe →</a>
+      <a href="https://github.com/bad-antics/blackflag-ecu" class="btn btn-outline" target="_blank">⭐ Star on GitHub</a>
+    </div>
+  </section>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-num">900+</div><div class="stat-label">Vehicle Database</div></div>
+    <div class="stat"><div class="stat-num">8</div><div class="stat-label">ECU Manufacturers</div></div>
+    <div class="stat"><div class="stat-num">5</div><div class="stat-label">Protocols</div></div>
+    <div class="stat"><div class="stat-num">4</div><div class="stat-label">Premium Themes</div></div>
+    <div class="stat"><div class="stat-num">155</div><div class="stat-label">MB Single Exe</div></div>
+  </div>
+
+  <section id="features">
+    <div class="container">
+      <div class="section-title">
+        <h2>Complete ECU Toolkit</h2>
+        <p>Everything you need to scan, diagnose, tune, and flash. One portable application.</p>
+      </div>
+      <div class="layers-grid">
+        <div class="layer-card">
+          <div style="font-size:1.5rem; margin-bottom:.75rem;">🔍</div>
+          <h3>ECU Scanner</h3>
+          <p>Scan and identify ECU types across all major manufacturers. Auto-detect protocol, read software version, and pull DTCs.</p>
+        </div>
+        <div class="layer-card">
+          <div style="font-size:1.5rem; margin-bottom:.75rem;">🔓</div>
+          <h3>ECU Unlock</h3>
+          <p>Unlock write-protection on Tricore, MPC5xx, SH7xxx, and ST10 processors. Support for Bosch, Denso, Continental, Delphi.</p>
+        </div>
+        <div class="layer-card">
+          <div style="font-size:1.5rem; margin-bottom:.75rem;">📊</div>
+          <h3>Live Data</h3>
+          <p>Real-time sensor streaming: O2, MAF, MAP, IAT, ECT, TPS, boost, AFR. Live voltage meter and freeze frame capture.</p>
+        </div>
+        <div class="layer-card">
+          <div style="font-size:1.5rem; margin-bottom:.75rem;">🎯</div>
+          <h3>VIN Decoder</h3>
+          <p>17-character VIN lookup with full vehicle specs. Make, model, year, engine, transmission, and supported ECU systems.</p>
+        </div>
+        <div class="layer-card">
+          <div style="font-size:1.5rem; margin-bottom:.75rem;">⚡</div>
+          <h3>Tune Manager</h3>
+          <p>Create, edit, and flash custom ECU tunes. Modify boost, timing, fuel maps, rev limits, and speed limiters with real-time preview.</p>
+        </div>
+        <div class="layer-card">
+          <div style="font-size:1.5rem; margin-bottom:.75rem;">💾</div>
+          <h3>ECU Cloning</h3>
+          <p>Full ECU backup and restore. Clone configurations between identical ECUs. Automatic backup before every flash operation.</p>
+        </div>
+        <div class="layer-card">
+          <div style="font-size:1.5rem; margin-bottom:.75rem;">📈</div>
+          <h3>Performance Dashboard</h3>
+          <p>Real-time charts powered by LiveCharts. Horsepower, torque, boost pressure, and AFR curves with data logging.</p>
+        </div>
+        <div class="layer-card">
+          <div style="font-size:1.5rem; margin-bottom:.75rem;">🔌</div>
+          <h3>Wiring Diagrams</h3>
+          <p>Interactive pinout diagrams for OBD-II connectors, ECU modules, and sensor harnesses. Searchable by vehicle and connector type.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: var(--bg2);">
+    <div class="container">
+      <div class="section-title">
+        <h2>Communication Protocols</h2>
+        <p>Full protocol support for modern and legacy vehicles.</p>
+      </div>
+      <div class="proto-grid">
+        <div class="proto-card">
+          <div class="proto-icon">📡</div>
+          <h4>CAN Bus</h4>
+          <p>ISO 15765 — High/Mid/Low Speed</p>
+        </div>
+        <div class="proto-card">
+          <div class="proto-icon">🔗</div>
+          <h4>K-Line</h4>
+          <p>ISO 9141 / ISO 14230 KWP2000</p>
+        </div>
+        <div class="proto-card">
+          <div class="proto-icon">⚡</div>
+          <h4>J1850</h4>
+          <p>PWM / VPW (Ford / GM)</p>
+        </div>
+        <div class="proto-card">
+          <div class="proto-icon">🔄</div>
+          <h4>LIN Bus</h4>
+          <p>Local Interconnect Network</p>
+        </div>
+        <div class="proto-card">
+          <div class="proto-icon">🛡️</div>
+          <h4>FlexRay</h4>
+          <p>Read-only monitoring</p>
+        </div>
+        <div class="proto-card">
+          <div class="proto-icon">🔌</div>
+          <h4>J2534</h4>
+          <p>Pass-through interface standard</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="vehicles">
+    <div class="container">
+      <div class="section-title">
+        <h2>900+ Supported Vehicles</h2>
+        <p>Domestic, European, and Japanese manufacturers. 2009–2025 model years.</p>
+      </div>
+      <div class="vehicle-grid">
+        <div class="vehicle-card">
+          <h3><span class="flag">🇺🇸</span> Domestic</h3>
+          <ul class="vehicle-list">
+            <li><span>Ford</span> <span class="years">F-150, Mustang, Bronco, Ranger</span></li>
+            <li><span>GM</span> <span class="years">Silverado, Camaro, Corvette, Sierra</span></li>
+            <li><span>Dodge/Ram</span> <span class="years">Ram 1500/2500, Charger, Challenger</span></li>
+          </ul>
+        </div>
+        <div class="vehicle-card">
+          <h3><span class="flag">🇩🇪</span> European</h3>
+          <ul class="vehicle-list">
+            <li><span>BMW</span> <span class="years">3/5/7 Series, M3/M4/M5</span></li>
+            <li><span>Mercedes</span> <span class="years">C/E/S Class, AMG</span></li>
+            <li><span>Audi</span> <span class="years">A4/A6/RS6, Q5/Q7</span></li>
+            <li><span>VW</span> <span class="years">Golf R, GTI, Tiguan</span></li>
+          </ul>
+        </div>
+        <div class="vehicle-card">
+          <h3><span class="flag">🇯🇵</span> Japanese</h3>
+          <ul class="vehicle-list">
+            <li><span>Toyota</span> <span class="years">Supra, GR86, Tacoma</span></li>
+            <li><span>Honda</span> <span class="years">Civic Type R, Accord</span></li>
+            <li><span>Nissan</span> <span class="years">GT-R, Z, 370Z</span></li>
+            <li><span>Subaru</span> <span class="years">WRX, STI, BRZ</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: var(--bg2);">
+    <div class="container">
+      <div class="section-title">
+        <h2>Supported ECU Manufacturers</h2>
+        <p>Flash, read, and unlock ECUs from every major supplier.</p>
+      </div>
+      <div class="layers-grid" style="max-width: 900px; margin: 0 auto;">
+        <div class="layer-card" style="text-align:center;">
+          <h3>Bosch</h3>
+          <p>EDC17, MED17, ME17, MD1</p>
+        </div>
+        <div class="layer-card" style="text-align:center;">
+          <h3>Denso</h3>
+          <p>Full read/write support</p>
+        </div>
+        <div class="layer-card" style="text-align:center;">
+          <h3>Continental</h3>
+          <p>Siemens/Continental ECUs</p>
+        </div>
+        <div class="layer-card" style="text-align:center;">
+          <h3>Delphi</h3>
+          <p>Full diagnostic support</p>
+        </div>
+        <div class="layer-card" style="text-align:center;">
+          <h3>Magneti Marelli</h3>
+          <p>Italian/European ECUs</p>
+        </div>
+        <div class="layer-card" style="text-align:center;">
+          <h3>Hitachi</h3>
+          <p>Japanese market ECUs</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-title">
+        <h2>4 Premium Themes</h2>
+        <p>Professional UI designed for the garage, dyno room, or shop floor.</p>
+      </div>
+      <div class="theme-grid">
+        <div class="theme-card">
+          <div class="theme-swatch" style="background: linear-gradient(135deg, #1a1a24, #14141e);"></div>
+          <h4>Dark Mode</h4>
+          <p>Modern dark — easy on the eyes</p>
+        </div>
+        <div class="theme-card">
+          <div class="theme-swatch" style="background: linear-gradient(135deg, #0a1a0a, #003300); border: 1px solid #00ff8840;"></div>
+          <h4>Retro Green</h4>
+          <p>Classic terminal aesthetic</p>
+        </div>
+        <div class="theme-card">
+          <div class="theme-swatch" style="background: linear-gradient(135deg, #001a3d, #003380);"></div>
+          <h4>Ford Blue</h4>
+          <p>OEM Ford blue styling</p>
+        </div>
+        <div class="theme-card">
+          <div class="theme-swatch" style="background: linear-gradient(135deg, #1a0f00, #331a00); border: 1px solid #ff6b3540;"></div>
+          <h4>Orange Tech</h4>
+          <p>High-contrast orange accents</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" style="background: var(--bg2);">
+    <div class="container">
+      <div class="section-title">
+        <h2>Pricing</h2>
+        <p>Free for hobbyists. Pro and Shop licenses for professional use.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <h3>Hobbyist</h3>
+          <div class="price">$0</div>
+          <div class="price-sub">Free — open source</div>
+          <ul class="price-features">
+            <li><span class="check">✓</span> Full diagnostic suite</li>
+            <li><span class="check">✓</span> VIN decoder</li>
+            <li><span class="check">✓</span> Live data streaming</li>
+            <li><span class="check">✓</span> DTC read/clear</li>
+            <li><span class="check">✓</span> 900+ vehicle database</li>
+            <li><span class="check">✓</span> 4 premium themes</li>
+            <li><span class="x">—</span> ECU flash/write</li>
+            <li><span class="x">—</span> Priority support</li>
+          </ul>
+          <a href="https://github.com/bad-antics/blackflag-ecu/releases/tag/v2.1" class="btn btn-outline">Download Free</a>
+        </div>
+        <div class="price-card featured">
+          <h3>Pro Tuner</h3>
+          <div class="price">$29<span>/mo</span></div>
+          <div class="price-sub">For enthusiasts & tuners</div>
+          <ul class="price-features">
+            <li><span class="check">✓</span> Everything in Hobbyist</li>
+            <li><span class="check">✓</span> ECU flash read/write</li>
+            <li><span class="check">✓</span> ECU unlock (all processors)</li>
+            <li><span class="check">✓</span> Tune manager</li>
+            <li><span class="check">✓</span> ECU cloning</li>
+            <li><span class="check">✓</span> Performance dashboard</li>
+            <li><span class="check">✓</span> Priority updates</li>
+            <li><span class="x">—</span> Multi-station license</li>
+          </ul>
+          <a href="https://github.com/sponsors/bad-antics" class="btn btn-primary">Get Pro →</a>
+        </div>
+        <div class="price-card">
+          <h3>Shop License</h3>
+          <div class="price">$149<span>/mo</span></div>
+          <div class="price-sub">For professional shops</div>
+          <ul class="price-features">
+            <li><span class="check">✓</span> Everything in Pro Tuner</li>
+            <li><span class="check">✓</span> Up to 5 workstations</li>
+            <li><span class="check">✓</span> Custom tune library sharing</li>
+            <li><span class="check">✓</span> Customer vehicle database</li>
+            <li><span class="check">✓</span> Invoice generation</li>
+            <li><span class="check">✓</span> White-label branding</li>
+            <li><span class="check">✓</span> Dedicated support</li>
+            <li><span class="check">✓</span> Beta features access</li>
+          </ul>
+          <a href="mailto:nullsec@proton.me?subject=BlackFlag%20Shop%20License" class="btn btn-outline">Contact Sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-title">
+        <h2>Safety First</h2>
+        <p>Built-in safeguards protect your ECU at every step.</p>
+      </div>
+      <div class="layers-grid" style="max-width: 900px; margin: 0 auto;">
+        <div class="layer-card">
+          <h3>🔒 Read-Only Mode</h3>
+          <p>Preview ECU data without any risk of modification. Inspect before you touch.</p>
+        </div>
+        <div class="layer-card">
+          <h3>💾 Auto-Backup</h3>
+          <p>Automatic full ECU backup before every write/flash operation. One-click restore.</p>
+        </div>
+        <div class="layer-card">
+          <h3>✅ Checksum Validation</h3>
+          <p>Verify tune file integrity before flashing. Catch corruption before it reaches the ECU.</p>
+        </div>
+        <div class="layer-card">
+          <h3>📡 Live Monitoring</h3>
+          <p>Abort flash if voltage drops or connection lost. Real-time integrity monitoring throughout.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="text-align: center; padding: 6rem 2rem; background: var(--bg2);">
+    <div class="container">
+      <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem;">
+        Unlock Your Engine's<br><span style="color: var(--accent);">Full Potential.</span>
+      </h2>
+      <p style="color: var(--text-dim); font-size: 1.1rem; margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;">
+        900+ vehicles. 8 ECU manufacturers. 5 protocols. One 155MB download.
+      </p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="https://github.com/bad-antics/blackflag-ecu/releases/tag/v2.1" class="btn btn-primary">⬇️ Download BlackFlag.exe</a>
+        <a href="https://github.com/sponsors/bad-antics" class="btn btn-outline">💛 Sponsor</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="https://github.com/bad-antics/blackflag-ecu">GitHub</a>
+      <a href="https://github.com/bad-antics/blackflag-ecu/releases">Releases</a>
+      <a href="https://github.com/bad-antics/blackflag-ecu/discussions">Discussions</a>
+      <a href="https://github.com/bad-antics/blackflag-ecu/blob/master/LICENSE">License (MIT)</a>
+      <a href="https://github.com/sponsors/bad-antics">Sponsor</a>
+      <a href="mailto:nullsec@proton.me">Contact</a>
+    </div>
+    <p>© 2026 Bad Antics Development. MIT Licensed. For off-road and racing use only.</p>
+  </footer>
+</body>
+</html>
