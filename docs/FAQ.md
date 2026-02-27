@@ -88,4 +88,4 @@ Open an issue on GitHub: github.com/bad-antics/blackflag-ecu/issues
 
 ---
 
-For more help, join our Discord: discord.gg/killers
+For more help, join our Discord: x.com/AnonAntics
